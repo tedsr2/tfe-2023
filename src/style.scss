@@ -2,6 +2,18 @@
 
 * {
   font-family: 'Montserrat', sans-serif;
+  color: #111111;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 html {
@@ -28,14 +40,8 @@ img {
   height: auto;
 }
 
-.main {
-  min-height: 100vh;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #0E0E0E;
+.no-spacing {
+  letter-spacing: normal;
 }
 
 .hidden {
@@ -50,4 +56,33 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+h1 {
+  font-weight: 600;
+  letter-spacing: 1em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+h3 {
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: rgb(155, 155, 155);
 }
