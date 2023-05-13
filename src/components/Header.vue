@@ -1,14 +1,13 @@
 <script setup>
-
 </script> 
 
 <template>
     <div class="header-container">
         <div class="logo">soundtracks</div>
         <div class="header-nav">
-            <h4>HOME</h4>
-            <h4>HANS ZIMMER</h4>
-            <h4>GEORGE WILLIAMS</h4>
+            <router-link :to="{name: 'home'}"><h4>home</h4></router-link>
+            <router-link :to="{name: 'hans'}"><h4>hans zimmer</h4></router-link>
+            <router-link :to="{name: 'john'}"><h4>john williams</h4></router-link>
         </div>
     </div>
 </template>

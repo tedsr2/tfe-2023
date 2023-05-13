@@ -1,14 +1,10 @@
 <script setup>
-import Intro from './components/Intro.vue';
-import Home from './components/Home.vue';
-import Hans from './components/Hans.vue';
-
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
   <main class="main">
-    <!-- <Home /> -->
-    <Hans />
+    <RouterView />
   </main>
 </template>
 
