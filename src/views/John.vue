@@ -8,6 +8,12 @@ import 'vue3-audio-player/dist/style.css'
 
 const title = ref(null);
 const titleblock = ref(null);
+const block1 = ref(null);
+const content1 = ref(null);
+const block2 = ref(null);
+const content2 = ref(null);
+const block3 = ref(null);
+const content3 = ref(null);
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -18,6 +24,54 @@ onMounted(() => {
             scrub: true,
             start: "center center",
             end: "bottom top",
+            markers: true,
+            invalidateOnResize: true,
+        },
+        opacity: 0,
+        duration: 3,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(block1.value, {
+        scrollTrigger: {
+            trigger: content1.value,
+            scrub: true,
+            start: "top 30%",
+            end: "top top",
+            markers: true,
+            invalidateOnResize: true,
+        },
+        opacity: 0,
+        duration: 3,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(block2.value, {
+        scrollTrigger: {
+            trigger: content2.value,
+            scrub: true,
+            start: "top 30%",
+            end: "top top",
+            markers: true,
+            invalidateOnResize: true,
+        },
+        opacity: 0,
+        duration: 3,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(block3.value, {
+        scrollTrigger: {
+            trigger: content3.value,
+            scrub: true,
+            start: "top 30%",
+            end: "top top",
             markers: true,
             invalidateOnResize: true,
         },
@@ -44,8 +98,12 @@ onMounted(() => {
             </div>
         </section>
 
-        <section>
-            <div class="intro">
+        <section class="block-container">
+            <div class="block block-left">
+                <div class="card">
+                    <h4>Jaw<span class="no-spacing">s</span></h4>
+                    <p>Oscar winner - Best Music, Original Dramatic Score</p>
+                </div>
                 <div class="player">
                     <AudioPlayer :option="{
                         src: '/audio/jaws.mp3',
@@ -54,6 +112,17 @@ onMounted(() => {
                         progressBarColor: '#111111',
                         indicatorColor: '#111111',
                     }" />
+                </div>
+            </div>
+            <div class="block"><img class="images" src="/images/jaws.jpg" alt="Jaws image"></div>
+        </section>
+
+        <section class="block-container">
+            <div class="block"><img class="images" src="/images/star-wars.jpg" alt="Star Wars image"></div>
+            <div ref="block1" class="block block-left">
+                <div class="card">
+                    <h4 ref="content1">Star War<span class="no-spacing">s</span></h4>
+                    <p>Oscar winner - Best Music, Original Score</p>
                 </div>
                 <div class="player">
                     <AudioPlayer :option="{
@@ -64,6 +133,15 @@ onMounted(() => {
                         indicatorColor: '#111111',
                     }" />
                 </div>
+            </div>
+        </section>
+
+        <section class="block-container">
+            <div class="block block-left">
+                <div class="card">
+                    <h4>Indiana Jone<span class="no-spacing">s</span></h4>
+                    <p>Oscar nominations - Best Music, Original Score</p>
+                </div>
                 <div class="player">
                     <AudioPlayer :option="{
                         src: '/audio/indiana-jones.mp3',
@@ -72,6 +150,17 @@ onMounted(() => {
                         progressBarColor: '#111111',
                         indicatorColor: '#111111',
                     }" />
+                </div>
+            </div>
+            <div class="block"><img class="images" src="/images/indiana-jones.jpg" alt="Indiana Jones image"></div>
+        </section>
+
+        <section class="block-container">
+            <div class="block"><img class="images" src="/images/e.t.jpg" alt="E.T image"></div>
+            <div ref="block2" class="block block-left">
+                <div class="card">
+                    <h4 ref="content2">E.<span class="no-spacing">T</span></h4>
+                    <p>Oscar winner - Best Music, Original Score</p>
                 </div>
                 <div class="player">
                     <AudioPlayer :option="{
@@ -82,6 +171,15 @@ onMounted(() => {
                         indicatorColor: '#111111',
                     }" />
                 </div>
+            </div>
+        </section>
+
+        <section class="block-container">
+            <div class="block block-left">
+                <div class="card">
+                    <h4>Schindler's Lis<span class="no-spacing">t</span></h4>
+                    <p>Oscar winner - Best Music, Original Score</p>
+                </div>
                 <div class="player">
                     <AudioPlayer :option="{
                         src: '/audio/schindlers-list.mp3',
@@ -90,6 +188,18 @@ onMounted(() => {
                         progressBarColor: '#111111',
                         indicatorColor: '#111111',
                     }" />
+                </div>
+            </div>
+            <div class="block"><img class="images" src="/images/schindlers-list.jpg" alt="Schindler's List image">
+            </div>
+        </section>
+
+        <section class="block-container">
+            <div class="block"><img class="images" src="/images/jurassic-park.jpg" alt="Jurassic Park image"></div>
+            <div ref="block3" class="block block-left">
+                <div class="card">
+                    <h4 ref="content3">Jurassic Par<span class="no-spacing">k</span></h4>
+                    <p>Grammy nominations - Best Instrumental Composition Written for a Motion Picture or for Television</p>
                 </div>
                 <div class="player">
                     <AudioPlayer :option="{
@@ -102,7 +212,6 @@ onMounted(() => {
                 </div>
             </div>
         </section>
-
     </div>
 </template>
 
@@ -154,12 +263,43 @@ onMounted(() => {
         background-image: url('/images/john-williams.jpg');
     }
 
-    .intro {
+    .block-container {
         height: 100vh;
         width: 100vw;
+        display: flex;
+        align-items: center;
 
-        .player {
+        .block {
             width: 50%;
+
+            .images {
+                width: 100%;
+                height: 70vh;
+                object-fit: cover;
+            }
+        }
+
+        .block-left {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                h4 {
+                    font-size: clamp(20px, 3vw, 60px);
+                }
+            }
+
+            .player {
+                width: 100%;
+            }
         }
     }
 }

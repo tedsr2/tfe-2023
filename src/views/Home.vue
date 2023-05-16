@@ -1,18 +1,29 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 const title = ref(null);
-const content = ref(null);
+const subtitle = ref(null);
+
+gsap.registerPlugin(ScrollTrigger)
 
 onMounted(() => {
-    gsap.from(title.value, {
-        delay: 0.5,
-        duration: 1,
-        y: '+100',
-        autoAlpha: 0,
-        ease: 'black.out(1.7)',
-    })
+    gsap.timeline()
+        .from(title.value, {
+            delay: 0.5,
+            duration: 1,
+            y: '+100',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+        .from(subtitle.value, {
+            delay: -0.5,
+            duration: 1,
+            y: '+100',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
 })
 </script>
 
@@ -21,9 +32,9 @@ onMounted(() => {
 
         <section class="background">
             <div class="mask">
-                <div class="title" ref="title">
-                    <h1>soundtrack<span class="no-spacing">s</span></h1>
-                    <h3>the sound of movie<span class="no-spacing">s</span></h3>
+                <div class="title">
+                    <h1 ref="title">soundtrack<span class="no-spacing">s</span></h1>
+                    <h3 ref="subtitle">the sound of movie<span class="no-spacing">s</span></h3>
                 </div>
             </div>
         </section>

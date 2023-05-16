@@ -3,11 +3,11 @@
 
 <template>
     <div class="header-container">
-        <div class="logo">soundtracks</div>
+        <div class="header-logo hidden">soundtracks</div>
         <div class="header-nav">
-            <router-link :to="{name: 'home'}"><h4>home</h4></router-link>
-            <router-link :to="{name: 'hans'}"><h4>hans zimmer</h4></router-link>
-            <router-link :to="{name: 'john'}"><h4>john williams</h4></router-link>
+            <router-link :to="{name: 'home'}"><h3>home</h3></router-link>
+            <router-link :to="{name: 'hans'}"><h3>hans zimmer</h3></router-link>
+            <router-link :to="{name: 'john'}"><h3>john williams</h3></router-link>
         </div>
     </div>
 </template>
@@ -15,8 +15,8 @@
 <style scoped lang="scss">
 .header-container {
     width: 100%;
-    height: 10vh;
-    padding: 30px;
+    height: 20vh;
+    padding: 60px;
     background-color: transparent;
     position: fixed;
     z-index: 10;
@@ -26,10 +26,10 @@
     mix-blend-mode: difference;
     color: #111111;
 
-    .logo {
+    .header-logo {
         font-size: 20px;
         font-weight: 600;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.5em;
         text-transform: uppercase;
         color: white;
     }
@@ -37,12 +37,13 @@
     .header-nav {
         display: flex;
 
-        h4 {
+        h3 {
             color: white;
-            padding: 0px 20px;
+            padding: 0px 60px;
+            letter-spacing: 0.5em;
         }
 
-        h4:last-child {
+        h3:last-child {
             padding-right: 0px;
         }
     }
