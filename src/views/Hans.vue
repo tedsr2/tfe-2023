@@ -3,6 +3,8 @@ import Header from '../components/Header.vue';
 import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import AudioPlayer from 'vue3-audio-player'
+import 'vue3-audio-player/dist/style.css'
 
 const title = ref(null);
 const titleblock = ref(null);
@@ -37,14 +39,85 @@ onMounted(() => {
 
         <section>
             <div ref="titleblock" class="title-block">
-                <h3 ref="title">Composor N<span>o.1</span></h3>
+                <h3 ref="title">composo<span class="no-spacing">r</span></h3>
                 <h1 class="title">hans zimme<span class="no-spacing">r</span></h1>
             </div>
         </section>
 
         <section>
             <div class="intro">
-
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/rain-man.mp3',
+                        title: 'Main Theme - Rain man (1988)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/lion-king.mp3',
+                        title: 'Remember - Lion King (1994)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/gladiator.mp3',
+                        title: 'Gladiator Medley - Gladiator (2000)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/inception.mp3',
+                        title: 'Time - Inception (2010)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/the-dark-knight-rises.mp3',
+                        title: 'Rise - The Dark Knight Rises (2012)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/interstellar.mp3',
+                        title: 'Dust - Interstellar (2014)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/dunkirk.mp3',
+                        title: 'Supermarine - Dunkirk (2019)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/dune.mp3',
+                        title: 'Dream of Arrakis - Dune (2021)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
             </div>
         </section>
 
@@ -80,7 +153,6 @@ onMounted(() => {
 
             span {
                 color: rgb(155, 155, 155);
-                text-transform: lowercase;
             }
         }
     }
@@ -97,12 +169,19 @@ onMounted(() => {
         background-repeat: no-repeat;
         background-position: top center;
         padding-top: 8vh;
-        background-image: url('src/assets/hans-zimmer.jpg');
+        background-image: url('/images/hans-zimmer.jpg');
     }
 
     .intro {
         height: 100vh;
         width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .player {
+            width: 50%;
+        }
     }
 }
 

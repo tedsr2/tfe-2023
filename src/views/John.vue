@@ -3,6 +3,8 @@ import Header from '../components/Header.vue';
 import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import AudioPlayer from 'vue3-audio-player'
+import 'vue3-audio-player/dist/style.css'
 
 const title = ref(null);
 const titleblock = ref(null);
@@ -37,14 +39,67 @@ onMounted(() => {
 
         <section>
             <div ref="titleblock" class="title-block">
-                <h3 ref="title">Composor N<span>o.1</span></h3>
-                <h1 class="title">hans zimme<span class="no-spacing">r</span></h1>
+                <h3 ref="title">composo<span class="no-spacing">r</span></h3>
+                <h1 class="title">john william<span class="no-spacing">s</span></h1>
             </div>
         </section>
 
         <section>
             <div class="intro">
-
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/jaws.mp3',
+                        title: 'Shark Theme - Jaws (1975)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/star-wars.mp3',
+                        title: 'Main Theme - Star Wars (1977)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/indiana-jones.mp3',
+                        title: 'The Raiders March - Indiana Jones (1981)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/e.t.mp3',
+                        title: 'Flying Theme - E.T (1982)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/schindlers-list.mp3',
+                        title: 'Theme - Schindlers List (1993)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
+                <div class="player">
+                    <AudioPlayer :option="{
+                        src: '/audio/jurassic-park.mp3',
+                        title: 'Theme - Jurassic Park (1993)',
+                        coverImage: '',
+                        progressBarColor: '#111111',
+                        indicatorColor: '#111111',
+                    }" />
+                </div>
             </div>
         </section>
 
@@ -80,7 +135,6 @@ onMounted(() => {
 
             span {
                 color: rgb(155, 155, 155);
-                text-transform: lowercase;
             }
         }
     }
@@ -97,12 +151,16 @@ onMounted(() => {
         background-repeat: no-repeat;
         background-position: top center;
         padding-top: 8vh;
-        background-image: url('src/assets/hans-zimmer.jpg');
+        background-image: url('/images/john-williams.jpg');
     }
 
     .intro {
         height: 100vh;
         width: 100vw;
+
+        .player {
+            width: 50%;
+        }
     }
 }
 

@@ -14,7 +14,7 @@ onMounted(() => {
         ease: 'black.out(1.7)',
     })
 })
-</script> 
+</script>
 
 <template>
     <div class="home-container">
@@ -51,7 +51,7 @@ onMounted(() => {
     height: 100%;
 
     .background {
-        background-image: url("src/assets/sound.jpg");
+        background-image: url('/images/sound.jpg');
         background-position: top;
         background-size: cover;
         min-height: 300vh;
@@ -63,8 +63,8 @@ onMounted(() => {
         width: 100%;
         position: absolute;
         inset: 0;
-        -webkit-mask: url("src/assets/mask.svg");
-        mask: url("src/assets/mask.svg");
+        -webkit-mask: url('/images/mask.svg');
+        mask: url('/images/mask.svg');
         -webkit-mask-position: top;
         mask-position: top;
         -webkit-mask-size: cover;
