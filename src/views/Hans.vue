@@ -160,7 +160,9 @@ onMounted(() => {
                     <h4>Gladiato<span class="no-spacing">r</span></h4>
                     <p>Oscar nominations - Best Music, Original Score</p>
                     <p>Excerpt from the live performance "Live in Prague"</p>
-                    <p>Watch the full performance at <a href="https://www.youtube.com/playlist?list=PLcSlQK9vbTGA2hS2E8cLZ36pbtbx11FZ5">this address</a></p>
+                    <p>Watch the full performance at <a
+                            href="https://www.youtube.com/playlist?list=PLcSlQK9vbTGA2hS2E8cLZ36pbtbx11FZ5">this address</a>
+                    </p>
                 </div>
                 <div class="player">
                     <AudioPlayer :option="{
@@ -174,7 +176,7 @@ onMounted(() => {
             </div>
             <div class="block"><img class="images" src="/images/gladiator.jpg" alt="Gladiator image"></div>
         </section>
-        
+
         <section class="block-container">
             <div class="block"><img class="images" src="/images/inception.jpg" alt="Inception image"></div>
             <div ref="block2" class="block block-left">
@@ -210,7 +212,8 @@ onMounted(() => {
                     }" />
                 </div>
             </div>
-            <div class="block"><img class="images" src="/images/the-dark-knight-rises.jpg" alt="The Dark Knight Rises image"></div>
+            <div class="block"><img class="images" src="/images/the-dark-knight-rises.jpg"
+                    alt="The Dark Knight Rises image"></div>
         </section>
 
         <section class="block-container">
@@ -395,5 +398,4 @@ onMounted(() => {
     .home-container .block {
         padding: 30px 15px;
     }
-}
-</style>
+}</style>
