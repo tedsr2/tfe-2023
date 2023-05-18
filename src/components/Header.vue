@@ -15,8 +15,8 @@
 <style scoped lang="scss">
 .header-container {
     width: 100%;
-    height: 20vh;
-    padding: 60px;
+    height: 15vh;
+    padding: 45px;
     background-color: transparent;
     position: fixed;
     z-index: 10;

@@ -10,7 +10,7 @@ const subtitle = ref(null);
 const homecontainer = ref(null);
 const headphonebackground = ref(null);
 const headphone = ref(null);
-const boxRef = ref(null);
+const button = ref(null);
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(ScrollToPlugin);
@@ -25,7 +25,7 @@ onMounted(() => {
             markers: true,
             invalidateOnResize: true,
         },
-        y: '+100',
+        opacity: 0.5,
         duration: 1,
     });
 }
@@ -41,7 +41,7 @@ onMounted(() => {
             markers: true,
             invalidateOnResize: true,
         },
-        y: '+100',
+        opacity: 0.5,
         duration: 1,
     });
 }
@@ -49,6 +49,13 @@ onMounted(() => {
 
 const startAnimation1 = () => {
     gsap.timeline()
+        .to(button.value, {
+            delay: -0.5,
+            duration: 1,
+            y: '+100',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
         .to(window, { duration: 4, ease: "power4.inOut", scrollTo: "#someID" })
 };
 
@@ -88,21 +95,31 @@ onMounted(() => {
             autoAlpha: 0,
             ease: 'black.out(1.7)',
         })
+        .from(button.value, {
+            delay: -0.5,
+            duration: 1,
+            y: '+100',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
 })
 </script>
 
 <template>
     <div ref="homecontainer" class="home-container">
-
         <section class="background">
             <div class="mask">
-                <div class="title">
-                    <h1 ref="title">soundtrack<span class="no-spacing">s</span></h1>
-                    <h3 ref="subtitle">the sound of movie<span class="no-spacing">s</span></h3>
-                    <div class="click-animation-container" @click="startAnimation1">
-                        <div ref="boxRef" class="box"></div>
+                <div class="title-container">
+                    <div>
+                        <h1 ref="title">soundtrack<span class="no-spacing">s</span></h1>
+                        <h3 ref="subtitle">the sound of movie<span class="no-spacing">s</span></h3>
                     </div>
                 </div>
+            </div>
+            <div class="button-container">
+                <button ref="button" @click="startAnimation1">
+                    dive
+                </button>
             </div>
         </section>
 
@@ -142,7 +159,7 @@ onMounted(() => {
     .headphone-container {
         position: fixed;
         top: 0;
-        z-index: 10;
+        z-index: 30;
         background-color: #111111;
         width: 100vw;
         height: 100vh;
@@ -189,8 +206,11 @@ onMounted(() => {
         mask-size: cover;
     }
 
-    .title {
-        margin-top: 20vh;
+    .title-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 20vh 0vh;
         text-align: center;
         text-transform: uppercase;
         position: fixed;
@@ -203,13 +223,39 @@ onMounted(() => {
 
         h3 {
             font-size: clamp(16px, 2vw, 30px);
+            margin-bottom: 4vh;
         }
     }
 
-    .click-animation-container {
-        width: 200px;
-        height: 200px;
-        background-color: red;
+    .button-container {
+        position: relative;
+        z-index: 20;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+
+        button {
+            margin: 20vh 0vh;
+            background-color: #292b31;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+
+        button:hover {
+            background-color: #717582;
+        }
     }
 
     .bottom {
