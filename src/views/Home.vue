@@ -1,4 +1,5 @@
 <script setup>
+import Menu from '../components/Menu.vue';
 import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -10,7 +11,6 @@ const subtitle = ref(null);
 const homecontainer = ref(null);
 const headphonebackground = ref(null);
 const headphone = ref(null);
-const button = ref(null);
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(ScrollToPlugin);
@@ -32,77 +32,60 @@ onMounted(() => {
 );
 
 onMounted(() => {
-    gsap.to(title.value, {
-        scrollTrigger: {
-            trigger: subtitle.value,
-            scrub: true,
-            start: "top 30%",
-            end: "bottom top",
-            markers: true,
-            invalidateOnResize: true,
-        },
-        opacity: 0.5,
-        duration: 1,
-    });
+    gsap.timeline()
+        .to(title.value, {
+            scrollTrigger: {
+                trigger: subtitle.value,
+                scrub: true,
+                start: "top 30%",
+                end: "bottom top",
+                markers: true,
+                invalidateOnResize: true,
+            },
+            opacity: 0.5,
+            duration: 1,
+        })
+        .to(window, { duration: 4, ease: "power4.inOut", scrollTo: "#someID" })
 }
 );
 
-const startAnimation1 = () => {
-    gsap.timeline()
-        .to(button.value, {
-            delay: -0.5,
-            duration: 1,
-            y: '+100',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .to(window, { duration: 4, ease: "power4.inOut", scrollTo: "#someID" })
-};
-
-onMounted(() => {
-    gsap.timeline()
-        .from(headphone.value, {
-            delay: 1,
-            duration: 2,
-            opacity: 0,
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .to(headphone.value, {
-            delay: 1,
-            duration: 1,
-            opacity: 0,
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .to(headphonebackground.value, {
-            delay: 0.5,
-            duration: 1,
-            backgroundColor: 'none',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .from(title.value, {
-            duration: 1,
-            y: '+100',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .from(subtitle.value, {
-            delay: -0.5,
-            duration: 1,
-            y: '+100',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .from(button.value, {
-            delay: -0.5,
-            duration: 1,
-            y: '+100',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-})
+// onMounted(() => {
+//     gsap.timeline()
+//         .from(headphone.value, {
+//             delay: 1,
+//             duration: 2,
+//             opacity: 0,
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .to(headphone.value, {
+//             delay: 1,
+//             duration: 1,
+//             opacity: 0,
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .to(headphonebackground.value, {
+//             delay: 0.5,
+//             duration: 1,
+//             backgroundColor: 'none',
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .from(title.value, {
+//             duration: 1,
+//             y: '+100',
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .from(subtitle.value, {
+//             delay: -0.5,
+//             duration: 1,
+//             y: '+100',
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+// })
 </script>
 
 <template>
@@ -115,11 +98,6 @@ onMounted(() => {
                         <h3 ref="subtitle">the sound of movie<span class="no-spacing">s</span></h3>
                     </div>
                 </div>
-            </div>
-            <div class="button-container">
-                <button ref="button" @click="startAnimation1">
-                    dive
-                </button>
             </div>
         </section>
 
@@ -145,6 +123,7 @@ onMounted(() => {
                     Today you will be given the opportunity to dive into the work of some of the greatest composers of all
                     times.
                 </p>
+                <Menu />
             </div>
         </div>
 
@@ -164,7 +143,7 @@ onMounted(() => {
         width: 100vw;
         height: 100vh;
         color: white;
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -224,37 +203,6 @@ onMounted(() => {
         h3 {
             font-size: clamp(16px, 2vw, 30px);
             margin-bottom: 4vh;
-        }
-    }
-
-    .button-container {
-        position: relative;
-        z-index: 20;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
-
-        button {
-            margin: 20vh 0vh;
-            background-color: #292b31;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-            text-transform: uppercase;
-            font-weight: 600;
-            cursor: pointer;
-            transition-duration: 0.5s;
-        }
-
-        button:hover {
-            background-color: #717582;
         }
     }
 

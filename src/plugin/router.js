@@ -10,6 +10,9 @@ const router = createRouter({
         },
         {
             path : '/john-williams', name : 'john', component : () => import('../views/John.vue')
+        },
+        {
+            path : '/michael-giacchino', name : 'michael', component : () => import('../views/Michael.vue')
         }
     ],
     history : createWebHistory()

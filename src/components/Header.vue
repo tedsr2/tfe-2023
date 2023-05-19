@@ -8,6 +8,7 @@
             <router-link :to="{name: 'home'}"><h3>home</h3></router-link>
             <router-link :to="{name: 'hans'}"><h3>hans zimmer</h3></router-link>
             <router-link :to="{name: 'john'}"><h3>john williams</h3></router-link>
+            <router-link :to="{name: 'michael'}"><h3>michael giacchino</h3></router-link>
         </div>
     </div>
 </template>
@@ -19,7 +20,7 @@
     padding: 45px;
     background-color: transparent;
     position: fixed;
-    z-index: 10;
+    z-index: 50;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -40,7 +41,7 @@
         h3 {
             color: white;
             padding: 0px 60px;
-            letter-spacing: 0.5em;
+            letter-spacing: 0.2em;
         }
 
         h3:last-child {

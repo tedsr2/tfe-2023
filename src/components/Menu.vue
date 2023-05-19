@@ -2,49 +2,55 @@
 </script> 
 
 <template>
-    <div class="header-container">
-        <div class="logo">soundtracks</div>
-        <div class="header-nav">
-            <router-link :to="{name: 'home'}"><h4>home</h4></router-link>
-            <router-link :to="{name: 'hans'}"><h4>hans zimmer</h4></router-link>
-            <router-link :to="{name: 'john'}"><h4>john williams</h4></router-link>
-        </div>
+    <div class="nav-container">
+        <router-link :to="{ name: 'hans' }">
+            <div class="composer">
+                <img class="composer__images" src="/images/hans-zimmer.jpg" alt="Hans Zimmer image">
+            </div>
+        </router-link>
+        <router-link :to="{ name: 'john' }">
+            <div class="composer">
+                <img class="composer__images" src="/images/john-williams.jpg" alt="John Williams image">
+            </div>
+        </router-link>
+        <router-link :to="{ name: 'michael' }">
+            <div class="composer">
+                <img class="composer__images" src="/images/michael-giacchino.jpg" alt="Michael Giacchino image">
+            </div>
+        </router-link>
     </div>
 </template>
 
 <style scoped lang="scss">
-.header-container {
+.nav-container {
     width: 100%;
-    height: 10vh;
-    padding: 30px;
-    background-color: transparent;
-    position: fixed;
-    z-index: 10;
+    height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    mix-blend-mode: difference;
-    color: #111111;
+    overflow-x: hidden;
 
-    .logo {
-        font-size: 20px;
-        font-weight: 600;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: white;
+    .composer {
+        z-index: 20;
+        width: 20vw;
+        height: 60vh;
+        margin: 0px 0.5vw;
+        transition-duration: 0.5s;
+        cursor: pointer;
+
+        .composer__images {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
-    .header-nav {
-        display: flex;
+    .composer:hover {
+        scale: 1.05;
+    }
 
-        h4 {
-            color: white;
-            padding: 0px 20px;
-        }
-
-        h4:last-child {
-            padding-right: 0px;
-        }
+    .wide {
+        pointer-events: none;
     }
 }
 </style>
