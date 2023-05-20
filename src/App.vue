@@ -27,16 +27,16 @@ export default {
   mounted() {
     window.addEventListener('hashchange', () => {
       this.currentPath = window.location.hash;
-      this.adjustPageSize(); // Call the method to adjust the page size
+      this.adjustPageSize();
     })
   },
   methods: {
     adjustPageSize() {
-      window.scrollTo(0, 0); // Scroll to the top
-      document.documentElement.style.height = 'auto'; // Reset the page height
-      const stateObj = { page: this.currentPath }; // Create a new state object
-      history.replaceState(stateObj, '', this.currentPath); // Update the URL without reloading
-      window.dispatchEvent(new Event('resize')); // Trigger a window resize event
+      window.scrollTo(0, 0);
+      document.documentElement.style.height = 'auto';
+      const stateObj = { page: this.currentPath };
+      history.replaceState(stateObj, '', this.currentPath);
+      window.dispatchEvent(new Event('resize'));
     }
   }
 }
