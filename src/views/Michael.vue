@@ -64,7 +64,6 @@ onMounted(() => {
             scrub: true,
             start: "center center",
             end: "bottom top",
-            markers: true,
             invalidateOnResize: true,
         },
         opacity: 0,

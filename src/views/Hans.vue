@@ -74,7 +74,6 @@ onMounted(() => {
             scrub: true,
             start: "center center",
             end: "bottom top",
-            markers: true,
             invalidateOnResize: true,
         },
         opacity: 0,
@@ -681,9 +680,9 @@ const startAnimation8 = () => {
         <Header />
 
         <section class="mobile">
-            <p>To live the Soundtracks experience to its fullest, please use the desktop version.</p> 
+            <p>To live the Soundtracks experience to its fullest, please use the desktop version.</p>
         </section>
-        
+
         <section>
             <div class="parallax-container hidden" title="Hans Zimmer photo">
                 hans-zimmer
