@@ -473,6 +473,11 @@ const startAnimation6 = () => {
 <template>
     <div class="container">
         <Header />
+
+        <section class="mobile">
+            <p>To live the Soundtracks experience to its fullest, please use the desktop version.</p> 
+        </section>
+
         <section>
             <div class="parallax-container hidden" title="John Williams photo">
                 john-williams

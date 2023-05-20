@@ -679,6 +679,11 @@ const startAnimation8 = () => {
 <template>
     <div class="container">
         <Header />
+
+        <section class="mobile">
+            <p>To live the Soundtracks experience to its fullest, please use the desktop version.</p> 
+        </section>
+        
         <section>
             <div class="parallax-container hidden" title="Hans Zimmer photo">
                 hans-zimmer
@@ -752,7 +757,9 @@ const startAnimation8 = () => {
                     </div>
                     <div class="card" ref="card3">
                         <p>Oscar nominee - Best Music, Original Score</p>
-                        <p>We encourage you to listen to the entire <a href="https://www.youtube.com/playlist?list=PLcSlQK9vbTGA2hS2E8cLZ36pbtbx11FZ5" target="_blank">LIVE</a></p>
+                        <p>We encourage you to listen to the entire <a
+                                href="https://www.youtube.com/playlist?list=PLcSlQK9vbTGA2hS2E8cLZ36pbtbx11FZ5"
+                                target="_blank">LIVE</a></p>
                     </div>
                 </div>
                 <div class="movie" ref="movie4" @click="startAnimation4">

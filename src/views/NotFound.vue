@@ -3,20 +3,18 @@ import Menu from '../components/Menu.vue';
 import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger'
-import AudioPlayer from 'vue3-audio-player'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import 'vue3-audio-player/dist/style.css'
 
 const title = ref(null);
 const subtitle = ref(null);
+const scroll = ref(null);
 const homecontainer = ref(null);
 const headphonebackground = ref(null);
 const headphone = ref(null);
-const p1 = ref(null);
-const p2 = ref(null);
-const p3 = ref(null);
-const p4 = ref(null);
 
 gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollToPlugin);
 
 onMounted(() => {
     gsap.to(subtitle.value, {
@@ -35,146 +33,66 @@ onMounted(() => {
 );
 
 onMounted(() => {
-    gsap.to(title.value, {
-        scrollTrigger: {
-            trigger: subtitle.value,
-            scrub: true,
-            start: "top 30%",
-            end: "bottom top",
-            markers: true,
-            invalidateOnResize: true,
-        },
-        opacity: 0.5,
-        duration: 1,
-    })
-}
-);
-
-onMounted(() => {
-    gsap.to(p1.value, {
-        scrollTrigger: {
-            trigger: p1.value,
-            start: "middle 90%",
-            end: "middle 50%",
-            scrub: true,
-            markers: true,
-            invalidateOnResize: true,
-        },
-        opacity: 1,
-        duration: 2,
-    });
-}
-);
-
-onMounted(() => {
-    gsap.to(p2.value, {
-        scrollTrigger: {
-            trigger: p2.value,
-            start: "middle 90%",
-            end: "middle 50%",
-            scrub: true,
-            markers: true,
-            invalidateOnResize: true,
-        },
-        opacity: 1,
-        duration: 2,
-    });
-}
-);
-
-onMounted(() => {
-    gsap.to(p3.value, {
-        scrollTrigger: {
-            trigger: p3.value,
-            start: "middle 90%",
-            end: "middle 50%",
-            scrub: true,
-            markers: true,
-            invalidateOnResize: true,
-        },
-        opacity: 1,
-        duration: 2,
-    });
-}
-);
-
-onMounted(() => {
-    gsap.to(p4.value, {
-        scrollTrigger: {
-            trigger: p4.value,
-            start: "middle 90%",
-            end: "middle 50%",
-            scrub: true,
-            markers: true,
-            invalidateOnResize: true,
-        },
-        opacity: 1,
-        duration: 2,
-    });
-}
-);
-
-onMounted(() => {
     gsap.timeline()
-        .to(p4.value, {
+        .to(title.value, {
             scrollTrigger: {
-                trigger: p4.value,
-                start: "middle 90%",
-                end: "middle 50%",
+                trigger: subtitle.value,
                 scrub: true,
+                start: "top 30%",
+                end: "bottom top",
                 markers: true,
                 invalidateOnResize: true,
             },
-            opacity: 1,
-            duration: 2,
-        });
+            opacity: 0.5,
+            duration: 1,
+        })
 }
 );
 
-onMounted(() => {
-    gsap.timeline()
-        .from(headphone.value, {
-            delay: 1,
-            duration: 1,
-            opacity: 0,
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .to(headphone.value, {
-            delay: 1,
-            duration: 1,
-            opacity: 0,
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .to(headphonebackground.value, {
-            delay: 0.5,
-            duration: 1,
-            backgroundColor: 'none',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .from(title.value, {
-            duration: 1,
-            y: '+100',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .from(subtitle.value, {
-            delay: -0.5,
-            duration: 1,
-            y: '+100',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-})
+// onMounted(() => {
+//     gsap.timeline()
+//         .from(headphone.value, {
+//             delay: 1,
+//             duration: 2,
+//             opacity: 0,
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .to(headphone.value, {
+//             delay: 1,
+//             duration: 1,
+//             opacity: 0,
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .to(headphonebackground.value, {
+//             delay: 0.5,
+//             duration: 1,
+//             backgroundColor: 'none',
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .from(title.value, {
+//             duration: 1,
+//             y: '+100',
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .from(subtitle.value, {
+//             delay: -0.5,
+//             duration: 1,
+//             y: '+100',
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+// })
 </script>
 
 <template>
     <div ref="homecontainer" class="home-container">
 
         <section class="mobile">
-            <p>To live the Soundtracks experience to its fullest, please use the desktop version.</p>
+            <p>To experience the full experience of soundtrack, pls use the website on desktop</p> 
         </section>
 
         <section class="background">
@@ -197,11 +115,13 @@ onMounted(() => {
         </section>
 
         <section class="middle">
-            <p ref="p1">In the wild, a sound is a deep valley that has been filled with sea water.</p>
-            <p ref="p2">In physics, sound is a vibration that propagates as an acoustic wave.</p>
-            <p ref="p3">In movies, these sounds are used to create atmosphere, feelings, and emotions...</p>
-            <p ref="p4">Today you will be given the opportunity to dive into the work of some of the greatest composers of
-                all times.</p>
+            <p>In the wild, a sound is a deep valley that has been filled with sea water.</p>
+            <p>In physics, sound is a vibration that propagates as an acoustic wave.</p>
+            <p>In movies, these sounds are used to create atmosphere, feelings, and emotions...</p>
+            <p>
+                Today you will be given the opportunity to dive into the work of some of the greatest composers of all
+                times.
+            </p>
         </section>
 
         <section class="bottom">
@@ -226,7 +146,7 @@ onMounted(() => {
         width: 100vw;
         height: 100vh;
         color: white;
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -299,14 +219,15 @@ onMounted(() => {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
 
         p {
-            max-width: 600px;
-            height: 20px;
+            width: 700px;
             text-align: center;
-            opacity: 0;
+            margin-bottom: 4vh;
+            max-width: 100vw;
         }
+
     }
 
     .bottom {

@@ -11,18 +11,33 @@ const titleblock = ref(null);
 const movie1 = ref(null);
 const movie2 = ref(null);
 const movie3 = ref(null);
+const movie4 = ref(null);
+const movie5 = ref(null);
+const movie6 = ref(null);
 const movie1copy = ref(null);
 const movie2copy = ref(null);
 const movie3copy = ref(null);
+const movie4copy = ref(null);
+const movie5copy = ref(null);
+const movie6copy = ref(null);
 const music1 = ref(null);
 const music2 = ref(null);
 const music3 = ref(null);
+const music4 = ref(null);
+const music5 = ref(null);
+const music6 = ref(null);
 const title1 = ref(null);
 const title2 = ref(null);
 const title3 = ref(null);
+const title4 = ref(null);
+const title5 = ref(null);
+const title6 = ref(null);
 const card1 = ref(null);
 const card2 = ref(null);
 const card3 = ref(null);
+const card4 = ref(null);
+const card5 = ref(null);
+const card6 = ref(null);
 const background = ref(null);
 const minWidth = 100;
 const isWide = ref(false);
@@ -71,6 +86,18 @@ const startAnimation1 = () => {
             opacity: 0,
         })
         .to(movie3.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie4.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie5.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie6.value, {
             duration: 0.2,
             opacity: 0,
         })
@@ -128,6 +155,18 @@ const startAnimation2 = () => {
             duration: 0.2,
             opacity: 0,
         })
+        .to(movie4.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie5.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie6.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
         .to(background.value, {
             duration: 0.01,
             display: 'block',
@@ -182,6 +221,18 @@ const startAnimation3 = () => {
             duration: 0.2,
             opacity: 0,
         })
+        .to(movie4.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie5.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie6.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
         .to(background.value, {
             duration: 0.01,
             display: 'block',
@@ -219,11 +270,214 @@ const startAnimation3 = () => {
         tl.reverse();
     });
 };
+
+const startAnimation4 = () => {
+    const tl = gsap.timeline();
+
+    tl.to(movie1.value, {
+        duration: 0.2,
+        width: '10vw',
+        opacity: 0,
+    })
+        .to(movie2.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie3.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie4.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie5.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie6.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(background.value, {
+            duration: 0.01,
+            display: 'block',
+            zIndex: 40,
+        })
+        .to(movie4copy.value, {
+            duration: 0.01,
+            display: 'flex',
+        })
+        .to(movie4copy.value, {
+            duration: 2,
+            opacity: 1,
+            marginTop: '-10vh',
+            width: '70vw',
+        })
+        .to(title4.value, {
+            duration: 0.5,
+            opacity: 1,
+        })
+        .to(music4.value, {
+            duration: 0.01,
+            display: 'block',
+        })
+        .to(music4.value, {
+            duration: 0.5,
+            opacity: 1,
+        })
+        .to(card4.value, {
+            delay: -0.5,
+            duration: 0.5,
+            opacity: 1,
+        })
+
+    background.value.addEventListener('click', () => {
+        tl.reverse();
+    });
+};
+
+const startAnimation5 = () => {
+    const tl = gsap.timeline();
+
+    tl.to(movie1.value, {
+        duration: 0.2,
+        width: '10vw',
+        opacity: 0,
+    })
+        .to(movie2.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie3.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie4.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie5.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie6.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(background.value, {
+            duration: 0.01,
+            display: 'block',
+            zIndex: 40,
+        })
+        .to(movie5copy.value, {
+            duration: 0.01,
+            display: 'flex',
+        })
+        .to(movie5copy.value, {
+            duration: 2,
+            opacity: 1,
+            marginTop: '-10vh',
+            width: '70vw',
+        })
+        .to(title5.value, {
+            duration: 0.5,
+            opacity: 1,
+        })
+        .to(music5.value, {
+            duration: 0.01,
+            display: 'block',
+        })
+        .to(music5.value, {
+            duration: 0.5,
+            opacity: 1,
+        })
+        .to(card5.value, {
+            delay: -0.5,
+            duration: 0.5,
+            opacity: 1,
+        })
+
+    background.value.addEventListener('click', () => {
+        tl.reverse();
+    });
+};
+
+const startAnimation6 = () => {
+    const tl = gsap.timeline();
+
+    tl.to(movie1.value, {
+        duration: 0.2,
+        width: '10vw',
+        opacity: 0,
+    })
+        .to(movie2.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie3.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie4.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie5.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(movie6.value, {
+            duration: 0.2,
+            opacity: 0,
+        })
+        .to(background.value, {
+            duration: 0.01,
+            display: 'block',
+            zIndex: 40,
+        })
+        .to(movie6copy.value, {
+            duration: 0.01,
+            display: 'flex',
+        })
+        .to(movie6copy.value, {
+            duration: 2,
+            opacity: 1,
+            marginTop: '-10vh',
+            width: '70vw',
+        })
+        .to(title6.value, {
+            duration: 0.5,
+            opacity: 1,
+        })
+        .to(music6.value, {
+            duration: 0.01,
+            display: 'block',
+        })
+        .to(music6.value, {
+            duration: 0.5,
+            opacity: 1,
+        })
+        .to(card6.value, {
+            delay: -0.5,
+            duration: 0.5,
+            opacity: 1,
+        })
+
+    background.value.addEventListener('click', () => {
+        tl.reverse();
+    });
+};
 </script>   
 
 <template>
     <div class="container">
         <Header />
+
+        <section class="mobile">
+            <p>To live the Soundtracks experience to its fullest, please use the desktop version.</p>
+        </section>
+
         <section>
             <div class="parallax-container hidden" title="John Williams photo">
                 michael-giacchino
@@ -241,10 +495,10 @@ const startAnimation3 = () => {
             <div class="nav-container">
                 <div class="background hidden" ref="background">Background</div>
                 <div class="movie" ref="movie1" @click="startAnimation1" :class="{ 'wide': isWide }">
-                    <img class="movie__images" src="/images/the-incredibles2.jpg" alt="The Incredibles image">
+                    <img class="movie__images" src="/images/the-incredibles.jpg" alt="The Incredibles image">
                 </div>
                 <div class="copy" ref="movie1copy">
-                    <img class="copy__images" src="/images/the-incredibles1.jpg" alt="The Incredibles image">
+                    <img class="copy__images" src="/images/the-incredibles.jpg" alt="The Incredibles image">
                     <h4 ref="title1">Incredit<span class="no-spacing">s</span></h4>
                     <div class="player" ref="music1">
                         <AudioPlayer :option="{
@@ -261,15 +515,15 @@ const startAnimation3 = () => {
                     </div>
                 </div>
                 <div class="movie" ref="movie2" @click="startAnimation2">
-                    <img class="movie__images" src="/images/rogue-one.jpg" alt="Rogue One: A Star Wars Story image">
+                    <img class="movie__images" src="/images/inside-out.jpg" alt="Inside Out image">
                 </div>
                 <div class="copy" ref="movie2copy">
-                    <img class="copy__images" src="/images/rogue-one.jpg" alt="Rogue One: A Star Wars Story image">
-                    <h4 ref="title2">Hop<span class="no-spacing">e</span></h4>
+                    <img class="copy__images" src="/images/inside-out.jpg" alt="Inside Out image">
+                    <h4 ref="title2">Bundle of Jo<span class="no-spacing">y</span></h4>
                     <div class="player" ref="music2">
                         <AudioPlayer :option="{
-                            src: '/audio/rogue-one.mp3',
-                            title: 'Rogue One: A Star Wars Story (2016)',
+                            src: '/audio/inside-out.mp3',
+                            title: 'Inside Out (2015)',
                             coverImage: '',
                             progressBarColor: '#111111',
                             indicatorColor: '#111111',
@@ -281,12 +535,72 @@ const startAnimation3 = () => {
                     </div>
                 </div>
                 <div class="movie" ref="movie3" @click="startAnimation3">
-                    <img class="movie__images" src="/images/the-batman.jpg" alt="The Batman image">
+                    <img class="movie__images" src="/images/rogue-one.jpg" alt="Rogue One: A Star Wars Story image">
                 </div>
                 <div class="copy" ref="movie3copy">
-                    <img class="copy__images" src="/images/the-batman.jpg" alt="The Batman image">
-                    <h4 ref="title3">The Batma<span class="no-spacing">n</span></h4>
+                    <img class="copy__images" src="/images/rogue-one.jpg" alt="Rogue One: A Star Wars Story image">
+                    <h4 ref="title3">Hop<span class="no-spacing">e</span></h4>
                     <div class="player" ref="music3">
+                        <AudioPlayer :option="{
+                            src: '/audio/rogue-one.mp3',
+                            title: 'Rogue One: A Star Wars Story (2016)',
+                            coverImage: '',
+                            progressBarColor: '#111111',
+                            indicatorColor: '#111111',
+                        }" />
+                    </div>
+                    <div class="card" ref="card3">
+                        <p class="hidden">/</p>
+                        <p class="hidden">/</p>
+                    </div>
+                </div>
+                <div class="movie" ref="movie4" @click="startAnimation4">
+                    <img class="movie__images" src="/images/dr-strange.jpg" alt="Doctor Strange image">
+                </div>
+                <div class="copy" ref="movie4copy">
+                    <img class="copy__images" src="/images/dr-strange.jpg" alt="Doctor Strange Batman image">
+                    <h4 ref="title4" class="long-title">Inside the Mirro<span class="no-spacing">r</span></h4>
+                    <div class="player" ref="music4">
+                        <AudioPlayer :option="{
+                            src: '/audio/dr-strange.mp3',
+                            title: 'Doctor Strange (2016)',
+                            coverImage: '',
+                            progressBarColor: '#111111',
+                            indicatorColor: '#111111',
+                        }" />
+                    </div>
+                    <div class="card" ref="card4">
+                        <p>Grammy nominee - Best Score Soundtrack for Visual Media</p>
+                        <p class="hidden">/</p>
+                    </div>
+                </div>
+                <div class="movie" ref="movie5" @click="startAnimation5">
+                    <img class="movie__images" src="/images/coco.jpg" alt="Coco image">
+                </div>
+                <div class="copy" ref="movie5copy">
+                    <img class="copy__images" src="/images/coco.jpg" alt="Coco image">
+                    <h4 ref="title5" class="long-title">Día de los Muerto<span class="no-spacing">s</span></h4>
+                    <div class="player" ref="music5">
+                        <AudioPlayer :option="{
+                            src: '/audio/coco.mp3',
+                            title: 'Coco (2017)',
+                            coverImage: '',
+                            progressBarColor: '#111111',
+                            indicatorColor: '#111111',
+                        }" />
+                    </div>
+                    <div class="card" ref="card5">
+                        <p>Grammy nominee - Best Score Soundtrack for Visual Media</p>
+                        <p class="hidden">/</p>
+                    </div>
+                </div>
+                <div class="movie" ref="movie6" @click="startAnimation6">
+                    <img class="movie__images" src="/images/the-batman.jpg" alt="The Batman image">
+                </div>
+                <div class="copy" ref="movie6copy">
+                    <img class="copy__images" src="/images/the-batman.jpg" alt="The Batman image">
+                    <h4 ref="title6">The Batma<span class="no-spacing">n</span></h4>
+                    <div class="player" ref="music6">
                         <AudioPlayer :option="{
                             src: '/audio/the-batman.mp3',
                             title: 'The Batman (2022)',
@@ -295,7 +609,7 @@ const startAnimation3 = () => {
                             indicatorColor: '#111111',
                         }" />
                     </div>
-                    <div class="card" ref="card3">
+                    <div class="card" ref="card6">
                         <p>Grammy nominee - Best Score Soundtrack for Visual Media</p>
                         <p class="hidden">/</p>
                     </div>

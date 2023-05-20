@@ -12,26 +12,41 @@ html::-webkit-scrollbar {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 html {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 html {
   box-sizing: border-box;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -87,5 +102,31 @@ p {
   font-weight: 400;
   font-size: 18px;
   line-height: 30px;
-  color: rgb(155, 155, 155);
+  color: rgb(170, 170, 170);
+}
+
+.mobile {
+  z-index: 100;
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #292b31;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  p {
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mobile {
+    display: flex;
+  }
 }
