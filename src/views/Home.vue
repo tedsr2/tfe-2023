@@ -3,6 +3,7 @@ import Menu from '../components/Menu.vue';
 import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 import AudioPlayer from 'vue3-audio-player'
 import 'vue3-audio-player/dist/style.css'
 
@@ -17,6 +18,7 @@ const p3 = ref(null);
 const p4 = ref(null);
 
 gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollToPlugin);
 
 onMounted(() => {
     gsap.to(subtitle.value, {
@@ -48,119 +50,108 @@ onMounted(() => {
 }
 );
 
-onMounted(() => {
-    gsap.to(p1.value, {
-        scrollTrigger: {
-            trigger: p1.value,
-            start: "middle 90%",
-            end: "middle 50%",
-            scrub: true,
-            invalidateOnResize: true,
+// onMounted(() => {
+//     gsap.timeline()
+//         .from(headphone.value, {
+//             delay: 1,
+//             duration: 1,
+//             opacity: 0,
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .to(headphone.value, {
+//             delay: 1,
+//             duration: 1,
+//             opacity: 0,
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .to(headphonebackground.value, {
+//             delay: 0.5,
+//             duration: 1,
+//             backgroundColor: 'none',
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .from(title.value, {
+//             duration: 1,
+//             y: '+100',
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+//         .from(subtitle.value, {
+//             delay: -0.5,
+//             duration: 1,
+//             y: '+100',
+//             autoAlpha: 0,
+//             ease: 'black.out(1.7)',
+//         })
+// })
+
+const scrollTop = () => {
+    gsap.to(window, {
+        scrollTo: {
+            y: "#top",
+            autoKill: false,
         },
-        opacity: 1,
-        duration: 2,
-    });
-}
-);
-
-onMounted(() => {
-    gsap.to(p2.value, {
-        scrollTrigger: {
-            trigger: p2.value,
-            start: "middle 90%",
-            end: "middle 50%",
-            scrub: true,
-            invalidateOnResize: true,
+        delay: -1,
+        duration: 1,
+        onComplete: () => {
+            console.log("Scroll animation completed.");
         },
-        opacity: 1,
-        duration: 2,
     });
-}
-);
+};
 
-onMounted(() => {
-    gsap.to(p3.value, {
-        scrollTrigger: {
-            trigger: p3.value,
-            start: "middle 90%",
-            end: "middle 50%",
-            scrub: true,
-            invalidateOnResize: true,
-        },
-        opacity: 1,
-        duration: 2,
+const audioPlayerRef1 = ref(null);
+const audioElementRef1 = ref(null);
+const audioPlayerRef2 = ref(null);
+const audioElementRef2 = ref(null);
+
+const handleIntersection1 = (entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            const audioElement = audioElementRef1.value;
+            if (audioElement) {
+                audioElement.pause();
+            }
+        }
     });
-}
-);
+};
 
 onMounted(() => {
-    gsap.to(p4.value, {
-        scrollTrigger: {
-            trigger: p4.value,
-            start: "middle 90%",
-            end: "middle 50%",
-            scrub: true,
-            invalidateOnResize: true,
-        },
-        opacity: 1,
-        duration: 2,
+    audioElementRef1.value = audioPlayerRef1.value.querySelector('audio');
+
+    const options = {
+        rootMargin: '0px',
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(handleIntersection1, options);
+    observer.observe(audioPlayerRef1.value);
+});
+
+const handleIntersection2 = (entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            const audioElement = audioElementRef2.value;
+            if (audioElement) {
+                audioElement.pause();
+            }
+        }
     });
-}
-);
+};
 
 onMounted(() => {
-    gsap.timeline()
-        .to(p4.value, {
-            scrollTrigger: {
-                trigger: p4.value,
-                start: "middle 90%",
-                end: "middle 50%",
-                scrub: true,
-                invalidateOnResize: true,
-            },
-            opacity: 1,
-            duration: 2,
-        });
-}
-);
+    audioElementRef2.value = audioPlayerRef2.value.querySelector('audio');
 
-onMounted(() => {
-    gsap.timeline()
-        .from(headphone.value, {
-            delay: 1,
-            duration: 1,
-            opacity: 0,
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .to(headphone.value, {
-            delay: 1,
-            duration: 1,
-            opacity: 0,
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .to(headphonebackground.value, {
-            delay: 0.5,
-            duration: 1,
-            backgroundColor: 'none',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .from(title.value, {
-            duration: 1,
-            y: '+100',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-        .from(subtitle.value, {
-            delay: -0.5,
-            duration: 1,
-            y: '+100',
-            autoAlpha: 0,
-            ease: 'black.out(1.7)',
-        })
-})
+    const options = {
+        rootMargin: '0px',
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(handleIntersection2, options);
+    observer.observe(audioPlayerRef2.value);
+});
 </script>
 
 <template>
@@ -170,7 +161,7 @@ onMounted(() => {
             <p>To live the Soundtracks experience to its fullest, please use the desktop version.</p>
         </section>
 
-        <section class="background">
+        <section ref="top" class="background">
             <div class="mask">
                 <div class="title-container">
                     <h1 ref="title">soundtrack<span class="no-spacing">s</span></h1>
@@ -189,20 +180,88 @@ onMounted(() => {
             </div>
         </section>
 
-        <section class="middle">
-            <p ref="p1">In the wild, a sound is a deep valley that has been filled with sea water.</p>
-            <p ref="p2">In physics, sound is a vibration that propagates as an acoustic wave.</p>
-            <p ref="p3">In movies, these sounds are used to create atmosphere, feelings, and emotions...</p>
-            <p ref="p4">Today you will be given the opportunity to dive into the work of some of the greatest composers of
-                all times.</p>
+        <section class="menu">
+            <ul>
+                <li class="menu-item" @click="scrollTop">
+                    <span class="hidden line">line</span><span class="name">top</span>
+                </li>
+                <li class="menu-item" @click="scrollMid">
+                    <span class="hidden line">line</span><span class="name">mid</span>
+                </li>
+                <li class="menu-item" @click="scrollBottom">
+                    <span class="hidden line">line</span><span class="name">bot</span>
+                </li>
+            </ul>
         </section>
 
-        <section class="bottom">
-            <div class="gradient">
-                <Menu />
-            </div>
-        </section>
+        <div class="parallax-container">
 
+            <section>
+                <div class="box box-1">
+                    <h1>fea<span class="no-spacing">r</span></h1>
+                </div>
+            </section>
+
+            <section>
+                <div class="parallax parallax-one">
+                    <div class="content">
+                        <h2 class="title">the batma<span class="no-spacing">n</span></h2>
+                        <div class="player" ref="audioPlayerRef1">
+                            <AudioPlayer ref="audioElement1" :option="{
+                                src: '/audio/the-batman.mp3',
+                                title: 'The Batman (2022)',
+                                coverImage: '',
+                                progressBarColor: '#111111',
+                                indicatorColor: '#111111',
+                                paused: true
+                            }"></AudioPlayer>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="box">
+                    <h1>fea<span class="no-spacing">r</span></h1>
+                </div>
+            </section>
+
+            <section>
+                <div class="parallax parallax-two">
+                    <div class="content">
+                        <h2 class="title">dun<span class="no-spacing">e</span></h2>
+                        <div class="player" ref="audioPlayerRef2">
+                            <AudioPlayer ref="audioElement2" :option="{
+                                src: '/audio/dune.mp3',
+                                title: 'Dune (2021)',
+                                coverImage: '',
+                                progressBarColor: '#111111',
+                                indicatorColor: '#111111',
+                                paused: true
+                            }"></AudioPlayer>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="box">
+                    <h1>fea<span class="no-spacing">r</span></h1>
+                </div>
+            </section>
+
+            <section>
+                <div class="parallax parallax-three">
+                    <h2 class="title">ENCHANTED FOREST</h2>
+                </div>
+            </section>
+
+            <section>
+                <div class="box">
+                    <h1>fea<span class="no-spacing">r</span></h1>
+                </div>
+            </section>
+        </div>
     </div>
 </template>
 
@@ -210,6 +269,47 @@ onMounted(() => {
 .home-container {
     width: 100%;
     height: 100vh;
+
+    .menu {
+        position: fixed;
+        z-index: 50;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        top: 0%;
+        color: #FAFAFA;
+
+        li {
+            cursor: pointer;
+            margin: 20px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .line {
+            height: 4px;
+            width: 20px;
+            background-color: #FAFAFA;
+        }
+
+        .name {
+            opacity: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transform: translateX(-10px);
+            color: #FAFAFA;
+        }
+
+        .menu-item:hover .name {
+            opacity: 1;
+            transform: translateX(10px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-item .name {
+            transition: all 0.3s ease-in-out;
+        }
+    }
 
     .headphone-container {
         position: fixed;
@@ -219,7 +319,7 @@ onMounted(() => {
         width: 100vw;
         height: 100vh;
         color: white;
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -244,7 +344,7 @@ onMounted(() => {
         background-image: url('/images/sound.jpg');
         background-position: top;
         background-size: cover;
-        min-height: 300vh;
+        height: 100vh;
         position: relative;
         padding: 20px;
         max-width: 100vw;
@@ -283,41 +383,106 @@ onMounted(() => {
         }
     }
 
-    .middle {
-        margin-top: -200vh;
-        height: 200vh;
-        width: 100vw;
-        position: absolute;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-
-        p {
-            max-width: 600px;
-            height: 20px;
-            text-align: center;
-            opacity: 0;
-        }
-    }
-
-    .bottom {
-        height: 100vh;
-        width: 100vw;
-        background-color: #292b31;
-        z-index: 10;
-
-        .gradient {
-            margin-top: -20px;
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(rgb(41, 43, 49, 0), rgb(41, 43, 49));
-            z-index: 10;
+    .parallax-container {
+        .box {
+            background: #111111;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
+            height: 20vh;
+            margin: 0 auto;
+            text-align: center;
+
+            h1 {
+                font-size: 35px;
+                letter-spacing: 8px;
+                color: #FAFAFA;
+            }
+
+            span {
+                color: #FAFAFA;
+            }
+        }
+
+        .box-1 {
+            height: 100vh;
+        }
+
+        .parallax {
+            padding-top: 200px;
+            padding-bottom: 200px;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            width: 100%;
+
+            .content {
+
+                .title {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    letter-spacing: 0.2em;
+                    font-size: clamp(60px, 8vw, 400px);
+                    text-transform: uppercase;
+                }
+
+                .player {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+
+        .parallax-one::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/the-batman.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: scale 40s linear infinite;
+        }
+
+        .parallax-two::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/dune.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: scale 40s linear infinite;
+        }
+
+        .parallax-three {
+            background-image: url('/images/jaws.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            -moz-background-size: cover;
+            -webkit-background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        @keyframes scale {
+            50% {
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                transform: scale(1.2);
+            }
         }
     }
 }

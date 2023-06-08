@@ -13,6 +13,7 @@
     "gsap": "^3.11.5",
     "howler": "^2.2.3",
     "vue": "^3.2.47",
+    "vue-audio": "^0.0.12",
     "vue-router": "^4.2.0",
     "vue3-audio-player": "^1.0.7"
   },

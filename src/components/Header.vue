@@ -3,7 +3,7 @@
 
 <template>
     <div class="header-container">
-        <div class="header-logo hidden">soundtracks</div>
+        <div class="header-logo">soundtracks</div>
         <div class="header-nav">
             <a href="#/" class="header-nav__link">hom<span class="no-spacing">e</span></a>
             <a href="#/hans-zimmer" class="header-nav__link">hans zimme<span class="no-spacing">r</span></a>
@@ -20,7 +20,7 @@
 <style scoped lang="scss">
 .header-container {
     width: 100%;
-    height: 15vh;
+    height: 10vh;
     padding: 45px;
     background-color: transparent;
     position: fixed;
