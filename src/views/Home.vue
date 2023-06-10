@@ -139,43 +139,43 @@ onMounted(() => {
 }
 );
 
-// onMounted(() => {
-//     gsap.timeline()
-//         .from(headphone.value, {
-//             delay: 1,
-//             duration: 1,
-//             opacity: 0,
-//             autoAlpha: 0,
-//             ease: 'black.out(1.7)',
-//         })
-//         .to(headphone.value, {
-//             delay: 1,
-//             duration: 1,
-//             opacity: 0,
-//             autoAlpha: 0,
-//             ease: 'black.out(1.7)',
-//         })
-//         .to(headphonebackground.value, {
-//             delay: 0.5,
-//             duration: 1,
-//             backgroundColor: 'none',
-//             autoAlpha: 0,
-//             ease: 'black.out(1.7)',
-//         })
-//         .from(title.value, {
-//             duration: 1,
-//             y: '+100',
-//             autoAlpha: 0,
-//             ease: 'black.out(1.7)',
-//         })
-//         .from(subtitle.value, {
-//             delay: -0.5,
-//             duration: 1,
-//             y: '+100',
-//             autoAlpha: 0,
-//             ease: 'black.out(1.7)',
-//         })
-// })
+onMounted(() => {
+    gsap.timeline()
+        .from(headphone.value, {
+            delay: 1,
+            duration: 1,
+            opacity: 0,
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+        .to(headphone.value, {
+            delay: 1,
+            duration: 1,
+            opacity: 0,
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+        .to(headphonebackground.value, {
+            delay: 0.5,
+            duration: 1,
+            backgroundColor: 'none',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+        .from(title.value, {
+            duration: 1,
+            y: '+100',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+        .from(subtitle.value, {
+            delay: -0.5,
+            duration: 1,
+            y: '+100',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+})
 
 const scrollTop = () => {
     gsap.to(window, {
@@ -593,8 +593,10 @@ onMounted(() => {
                         <p>Composer: Blackway & Black Caviar</p>
                     </div>
                     <div>
-                        <p>All of the movie led to this scene, all the build up and the tension finds itself in this moment. I still
-                            can't find the words to describe how rewarding this scene was, the score playing a big role in it.
+                        <p>All of the movie led to this scene, all the build up and the tension finds itself in this moment.
+                            I still
+                            can't find the words to describe how rewarding this scene was, the score playing a big role in
+                            it.
                         </p>
                     </div>
                 </div>
@@ -683,12 +685,12 @@ onMounted(() => {
     .headphone-container {
         position: fixed;
         top: 0;
-        z-index: 30;
+        z-index: 100;
         background-color: #111111;
         width: 100vw;
         height: 100vh;
         color: white;
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -838,7 +840,7 @@ onMounted(() => {
         .content {
             width: 100%;
             height: 100%;
-            
+
             .title {
                 width: 100%;
                 height: 100%;
