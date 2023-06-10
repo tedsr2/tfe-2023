@@ -409,9 +409,9 @@ onMounted(() => {
             <p ref="p1">In the wild, a sound is a deep valley that has been filled with sea water.</p>
             <p ref="p2">In physics, sound is a vibration that propagates as an acoustic wave.</p>
             <p ref="p3">In movies, these sounds are used to create atmosphere, feelings, and emotions...</p>
-            <p ref="p4">Today you will be given the opportunity to dive into the work of some of the greatest composers of
+            <p ref="p4">Today you will have the opportunity to dive into the work of some of the greatest composers of
                 all times.</p>
-            <p ref="p5">To start, I'm going to share with you my biggest moments of emotions while hearing scores.</p>
+            <p ref="p5">To start, I'm going to share with you my greatest emotional moments while listening to scores.</p>
         </section>
 
         <section class="menu">
@@ -519,9 +519,9 @@ onMounted(() => {
                                 here</a></p>
                     </div>
                     <div>
-                        <p>Was it a good idea from my dad to let me watch this movie alone at the age of 3? Well it made me
+                        <p>Was it a good idea from my dad to let me watch this movie alone at the age of 6? Well it made me
                             fall
-                            in love with movies of the 70th at least, but I don't think I will ever forget the chills this
+                            in love with movies of the 1970s at least, but I don't think I will ever forget the chills this
                             score gave me the first time.
                         </p>
                     </div>
@@ -558,8 +558,8 @@ onMounted(() => {
                     </div>
                     <div>
                         <p>Michael Giacchino probably gave me one of my most favorite and intense movie scene of my life.
-                            What can be more exciting than one of the greatest villains of all time, slaughtering rebels on
-                            and incredible score?
+                            What could be more exciting than one of the greatest villains of all time slaughtering rebels,
+                            if not to add an incredible background music?
                         </p>
                     </div>
                 </div>
@@ -593,10 +593,10 @@ onMounted(() => {
                         <p>Composer: Blackway & Black Caviar</p>
                     </div>
                     <div>
-                        <p>All of the movie led to this scene, all the build up and the tension finds itself in this moment.
-                            I still
-                            can't find the words to describe how rewarding this scene was, the score playing a big role in
-                            it.
+                        <p>All of the movie led to this scene, all the build up and the tension find itself in this moment
+                            of the movie.
+                            I still can't find the words to describe how gratifying this scene was, with the score playing a
+                            big part in it.
                         </p>
                     </div>
                 </div>
