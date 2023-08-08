@@ -1,616 +1,621 @@
 <script setup>
-import Header from '../components/Header.vue';
-import { onMounted, ref, watch, nextTick } from 'vue';
+import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 import AudioPlayer from 'vue3-audio-player'
 import 'vue3-audio-player/dist/style.css'
 
+//REF
+
 const title = ref(null);
-const titleblock = ref(null);
-const movie1 = ref(null);
-const movie2 = ref(null);
-const movie3 = ref(null);
-const movie4 = ref(null);
-const movie5 = ref(null);
-const movie6 = ref(null);
-const movie1copy = ref(null);
-const movie2copy = ref(null);
-const movie3copy = ref(null);
-const movie4copy = ref(null);
-const movie5copy = ref(null);
-const movie6copy = ref(null);
-const music1 = ref(null);
-const music2 = ref(null);
-const music3 = ref(null);
-const music4 = ref(null);
-const music5 = ref(null);
-const music6 = ref(null);
-const title1 = ref(null);
-const title2 = ref(null);
-const title3 = ref(null);
-const title4 = ref(null);
-const title5 = ref(null);
-const title6 = ref(null);
-const card1 = ref(null);
-const card2 = ref(null);
-const card3 = ref(null);
-const card4 = ref(null);
-const card5 = ref(null);
-const card6 = ref(null);
-const background = ref(null);
-const minWidth = 100;
-const isWide = ref(false);
+const subtitle = ref(null);
+const homecontainer = ref(null);
+const headphonebackground = ref(null);
+const headphone = ref(null);
+const p1 = ref(null);
+const p2 = ref(null);
+const p3 = ref(null);
+const p4 = ref(null);
+const p5 = ref(null);
+const audioPlayerRef1 = ref(null);
+const audioElementRef1 = ref(null);
+const audioPlayerRef2 = ref(null);
+const audioElementRef2 = ref(null);
+const audioPlayerRef3 = ref(null);
+const audioElementRef3 = ref(null);
+const audioPlayerRef4 = ref(null);
+const audioElementRef4 = ref(null);
+const audioPlayerRef5 = ref(null);
+const audioElementRef5 = ref(null);
 
-onMounted(() => {
-    watch(
-        () => movie1.value.offsetWidth,
-        (newWidth) => {
-            nextTick(() => {
-                isWide.value = newWidth >= minWidth;
-            });
-        }
-    );
-});
-
-console.log(isWide.value);
+//GSAP ANIMATION
 
 gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollToPlugin);
 
 onMounted(() => {
-    gsap.to(titleblock.value, {
+    gsap.to(subtitle.value, {
         scrollTrigger: {
-            trigger: title.value,
+            trigger: subtitle.value,
             scrub: true,
-            start: "center center",
+            start: "top 30%",
             end: "bottom top",
             invalidateOnResize: true,
         },
-        opacity: 0,
-        duration: 3,
+        opacity: 0.5,
+        duration: 1,
     });
 }
 );
 
-const startAnimation1 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
-        opacity: 0,
+onMounted(() => {
+    gsap.to(title.value, {
+        scrollTrigger: {
+            trigger: subtitle.value,
+            scrub: true,
+            start: "top 30%",
+            end: "bottom top",
+            invalidateOnResize: true,
+        },
+        opacity: 0.5,
+        duration: 1,
     })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(background.value, {
-            duration: 0.01,
-            display: 'block',
-            zIndex: 40,
-        })
-        .to(movie1copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie1copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '-10vh',
-            width: '70vw',
-        })
-        .to(title1.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music1.value, {
-            duration: 0.01,
-            display: 'block',
-        })
-        .to(music1.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(card1.value, {
-            delay: -0.5,
-            duration: 0.5,
-            opacity: 1,
-        })
+}
+);
 
-    background.value.addEventListener('click', () => {
-        tl.reverse();
+onMounted(() => {
+    gsap.to(p1.value, {
+        scrollTrigger: {
+            trigger: p1.value,
+            start: "middle 90%",
+            end: "middle 50%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        opacity: 1,
+        duration: 2,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(p2.value, {
+        scrollTrigger: {
+            trigger: p2.value,
+            start: "middle 90%",
+            end: "middle 50%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        opacity: 1,
+        duration: 2,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(p3.value, {
+        scrollTrigger: {
+            trigger: p3.value,
+            start: "middle 90%",
+            end: "middle 50%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        opacity: 1,
+        duration: 2,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(p4.value, {
+        scrollTrigger: {
+            trigger: p4.value,
+            start: "middle 90%",
+            end: "middle 50%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        opacity: 1,
+        duration: 2,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(p5.value, {
+        scrollTrigger: {
+            trigger: p5.value,
+            start: "middle 90%",
+            end: "middle 50%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        opacity: 1,
+        duration: 2,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.timeline()
+        .from(headphone.value, {
+            delay: 1,
+            duration: 1,
+            opacity: 0,
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+        .to(headphone.value, {
+            delay: 1,
+            duration: 1,
+            opacity: 0,
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+        .to(headphonebackground.value, {
+            delay: 0.5,
+            duration: 1,
+            backgroundColor: 'none',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+        .from(title.value, {
+            duration: 1,
+            y: '+100',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+        .from(subtitle.value, {
+            delay: -0.5,
+            duration: 1,
+            y: '+100',
+            autoAlpha: 0,
+            ease: 'black.out(1.7)',
+        })
+})
+
+const scrollTop = () => {
+    gsap.to(window, {
+        scrollTo: {
+            y: "#top",
+            autoKill: false,
+        },
+        delay: -1,
+        duration: 1,
+        onComplete: () => {
+            console.log("Scroll animation completed.");
+        },
     });
 };
 
-const startAnimation2 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
-        opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(background.value, {
-            duration: 0.01,
-            display: 'block',
-            zIndex: 40,
-        })
-        .to(movie2copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie2copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '-10vh',
-            width: '70vw',
-        })
-        .to(title2.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music2.value, {
-            duration: 0.01,
-            display: 'block',
-        })
-        .to(music2.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(card2.value, {
-            delay: -0.5,
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    background.value.addEventListener('click', () => {
-        tl.reverse();
+const scroll1 = () => {
+    gsap.to(window, {
+        scrollTo: {
+            y: "#jai",
+            autoKill: false,
+        },
+        delay: -1,
+        duration: 1,
+        onComplete: () => {
+            console.log("Scroll animation completed.");
+        },
     });
 };
 
-const startAnimation3 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
-        opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(background.value, {
-            duration: 0.01,
-            display: 'block',
-            zIndex: 40,
-        })
-        .to(movie3copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie3copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '-10vh',
-            width: '70vw',
-        })
-        .to(title3.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music3.value, {
-            duration: 0.01,
-            display: 'block',
-        })
-        .to(music3.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(card3.value, {
-            delay: -0.5,
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    background.value.addEventListener('click', () => {
-        tl.reverse();
+const scroll2 = () => {
+    gsap.to(window, {
+        scrollTo: {
+            y: "#presque",
+            autoKill: false,
+        },
+        delay: -1,
+        duration: 1,
+        onComplete: () => {
+            console.log("Scroll animation completed.");
+        },
     });
 };
 
-const startAnimation4 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
-        opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(background.value, {
-            duration: 0.01,
-            display: 'block',
-            zIndex: 40,
-        })
-        .to(movie4copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie4copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '-10vh',
-            width: '70vw',
-        })
-        .to(title4.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music4.value, {
-            duration: 0.01,
-            display: 'block',
-        })
-        .to(music4.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(card4.value, {
-            delay: -0.5,
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    background.value.addEventListener('click', () => {
-        tl.reverse();
+const scroll3 = () => {
+    gsap.to(window, {
+        scrollTo: {
+            y: "#termine",
+            autoKill: false,
+        },
+        delay: -1,
+        duration: 1,
+        onComplete: () => {
+            console.log("Scroll animation completed.");
+        },
     });
 };
 
-const startAnimation5 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
-        opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(background.value, {
-            duration: 0.01,
-            display: 'block',
-            zIndex: 40,
-        })
-        .to(movie5copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie5copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '-10vh',
-            width: '70vw',
-        })
-        .to(title5.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music5.value, {
-            duration: 0.01,
-            display: 'block',
-        })
-        .to(music5.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(card5.value, {
-            delay: -0.5,
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    background.value.addEventListener('click', () => {
-        tl.reverse();
+const scroll4 = () => {
+    gsap.to(window, {
+        scrollTo: {
+            y: "#mon",
+            autoKill: false,
+        },
+        delay: -1,
+        duration: 1,
+        onComplete: () => {
+            console.log("Scroll animation completed.");
+        },
     });
 };
 
-const startAnimation6 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
-        opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(background.value, {
-            duration: 0.01,
-            display: 'block',
-            zIndex: 40,
-        })
-        .to(movie6copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie6copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '-10vh',
-            width: '70vw',
-        })
-        .to(title6.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music6.value, {
-            duration: 0.01,
-            display: 'block',
-        })
-        .to(music6.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(card6.value, {
-            delay: -0.5,
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    background.value.addEventListener('click', () => {
-        tl.reverse();
+const scroll5 = () => {
+    gsap.to(window, {
+        scrollTo: {
+            y: "#tfe",
+            autoKill: false,
+        },
+        delay: -1,
+        duration: 1,
+        onComplete: () => {
+            console.log("Scroll animation completed.");
+        },
     });
 };
-</script>   
+
+//CUT MUSIC
+
+const handleIntersection1 = (entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            const audioElement = audioElementRef1.value;
+            if (audioElement) {
+                audioElement.pause();
+            }
+        }
+    });
+};
+
+onMounted(() => {
+    audioElementRef1.value = audioPlayerRef1.value.querySelector('audio');
+
+    const options = {
+        rootMargin: '0px',
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(handleIntersection1, options);
+    observer.observe(audioPlayerRef1.value);
+});
+
+const handleIntersection2 = (entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            const audioElement = audioElementRef2.value;
+            if (audioElement) {
+                audioElement.pause();
+            }
+        }
+    });
+};
+
+onMounted(() => {
+    audioElementRef2.value = audioPlayerRef2.value.querySelector('audio');
+
+    const options = {
+        rootMargin: '0px',
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(handleIntersection2, options);
+    observer.observe(audioPlayerRef2.value);
+});
+
+const handleIntersection3 = (entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            const audioElement = audioElementRef3.value;
+            if (audioElement) {
+                audioElement.pause();
+            }
+        }
+    });
+};
+
+onMounted(() => {
+    audioElementRef3.value = audioPlayerRef3.value.querySelector('audio');
+
+    const options = {
+        rootMargin: '0px',
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(handleIntersection3, options);
+    observer.observe(audioPlayerRef3.value);
+});
+
+const handleIntersection4 = (entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            const audioElement = audioElementRef4.value;
+            if (audioElement) {
+                audioElement.pause();
+            }
+        }
+    });
+};
+
+onMounted(() => {
+    audioElementRef4.value = audioPlayerRef4.value.querySelector('audio');
+
+    const options = {
+        rootMargin: '0px',
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(handleIntersection4, options);
+    observer.observe(audioPlayerRef4.value);
+});
+
+const handleIntersection5 = (entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            const audioElement = audioElementRef5.value;
+            if (audioElement) {
+                audioElement.pause();
+            }
+        }
+    });
+};
+
+onMounted(() => {
+    audioElementRef5.value = audioPlayerRef5.value.querySelector('audio');
+
+    const options = {
+        rootMargin: '0px',
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(handleIntersection5, options);
+    observer.observe(audioPlayerRef5.value);
+});
+</script>
 
 <template>
-    <div class="container">
-        <Header />
+    <div ref="homecontainer" class="home-container">
 
         <section class="mobile">
             <p>To live the Soundtracks experience to its fullest, please use the desktop version.</p>
         </section>
 
-        <section>
-            <div class="parallax-container hidden" title="John Williams photo">
-                michael-giacchino
-            </div>
-        </section>
-
-        <section>
-            <div ref="titleblock" class="title-container">
-                <h3 ref="title">composo<span class="no-spacing">r</span></h3>
-                <h1 class="title">michael giacchin<span class="no-spacing">o</span></h1>
-            </div>
-        </section>
-
-        <section>
-            <div class="nav-container">
-                <div class="background hidden" ref="background">Background</div>
-                <div class="movie" ref="movie1" @click="startAnimation1" :class="{ 'wide': isWide }">
-                    <img class="movie__images" src="/images/the-incredibles.jpg" alt="The Incredibles image">
+        <section id="top" ref="top" class="background">
+            <div class="mask">
+                <div class="title-container">
+                    <h1 ref="title">soundtrack<span class="no-spacing">s</span></h1>
+                    <h3 ref="subtitle">the sound of movie<span class="no-spacing">s</span></h3>
                 </div>
-                <div class="copy" ref="movie1copy">
-                    <img class="copy__images" src="/images/the-incredibles.jpg" alt="The Incredibles image">
-                    <h4 ref="title1">Incredit<span class="no-spacing">s</span></h4>
-                    <div class="player" ref="music1">
-                        <AudioPlayer :option="{
+            </div>
+        </section>
+
+        <section ref="headphonebackground" class="headphone-container">
+            <div ref="headphone" class="headphone">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#FAFAFA"
+                        d="M22 13c-.027-5.497-4.497-10-10-10s-9.973 4.503-10 10h2.5c.828 0 1.5.672 1.5 1.5v7c0 .828-.672 1.5-1.5 1.5h-3c-.828 0-1.5-.672-1.5-1.5v-8.5c.027-6.601 5.394-12 12-12s11.973 5.399 12 12v8.5c0 .828-.672 1.5-1.5 1.5h-3c-.828 0-1.5-.672-1.5-1.5v-7c0-.828.672-1.5 1.5-1.5h2.5z" />
+                </svg>
+                <p className='uppercase tracking-[1em] m-10 text-center leading-8'>put your headphone</p>
+            </div>
+        </section>
+
+        <section class="middle">
+            <p ref="p1">In the wild, a sound is a deep valley that has been filled with sea water.</p>
+            <p ref="p2">In physics, sound is a vibration that propagates as an acoustic wave.</p>
+            <p ref="p3">In movies, these sounds are used to create atmosphere, feelings, and emotions...</p>
+            <p ref="p4">Today you will have the opportunity to dive into the work of some of the greatest composers of
+                all times.</p>
+            <p ref="p5">To start, I'm going to share with you my greatest emotional moments while listening to scores.</p>
+        </section>
+
+        <section class="menu">
+            <ul>
+                <li class="menu-item" @click="scrollTop">
+                    <span class="hidden line">line</span><span class="name">top</span>
+                </li>
+                <li class="menu-item" @click="scroll1">
+                    <span class="hidden line">line</span><span class="name">heart of child</span>
+                </li>
+                <li class="menu-item" @click="scroll2">
+                    <span class="hidden line">line</span><span class="name">tears</span>
+                </li>
+                <li class="menu-item" @click="scroll3">
+                    <span class="hidden line">line</span><span class="name">fear</span>
+                </li>
+                <li class="menu-item" @click="scroll4">
+                    <span class="hidden line">line</span><span class="name">excitement</span>
+                </li>
+                <li class="menu-item" @click="scroll5">
+                    <span class="hidden line">line</span><span class="name">hype</span>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="box">
+                <h1>heart of chil<span class="no-spacing">d</span></h1>
+                <div class="content">
+                    <div>
+                        <p>Movie: The Incredibles (2004)</p>
+                        <p>Composer: Michael Giacchino <a href="#/michael-giacchino" class="header-nav__link">More of him
+                                here</a></p>
+                    </div>
+                    <div>
+                        <p>As far as I can remember, it was the first time that the score of a movie hitted me.
+                            When I listen to it now, I can feel long times forgotten emotions from another time of my life.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="jai" ref="jai" class="scroll">
+            <div class="parallax parallax-one">
+                <div class="content">
+                    <h2 class="title long-title">the Incredible<span class="no-spacing">s</span></h2>
+                    <div class="player" ref="audioPlayerRef1">
+                        <AudioPlayer ref="audioElement1" :option="{
                             src: '/audio/the-incredibles.mp3',
                             title: 'The Incredibles (2004)',
                             coverImage: '',
                             progressBarColor: '#111111',
                             indicatorColor: '#111111',
-                        }" />
-                    </div>
-                    <div class="card" ref="card1">
-                        <p>Grammy nominee - Best Score Soundtrack for Visual Media</p>
-                        <p class="hidden">/</p>
+                            paused: true
+                        }"></AudioPlayer>
                     </div>
                 </div>
-                <div class="movie" ref="movie2" @click="startAnimation2">
-                    <img class="movie__images" src="/images/inside-out.jpg" alt="Inside Out image">
+            </div>
+        </section>
+
+        <section>
+            <div class="box">
+                <h1>tear<span class="no-spacing">s</span></h1>
+                <div class="content">
+                    <div>
+                        <p>Movie: Rain man (1988)</p>
+                        <p>Composer: Hans Zimmer <a href="#/hans-zimmer" class="header-nav__link">More of him
+                                here</a></p>
+                    </div>
+                    <div>
+                        <p>For the first time in my life, a music had me in tears. I don't cry easily at movies, but the
+                            score of Hans Zimmer for Rain Man will be forever a part of me.
+                        </p>
+                    </div>
                 </div>
-                <div class="copy" ref="movie2copy">
-                    <img class="copy__images" src="/images/inside-out.jpg" alt="Inside Out image">
-                    <h4 ref="title2">Bundle of Jo<span class="no-spacing">y</span></h4>
-                    <div class="player" ref="music2">
-                        <AudioPlayer :option="{
-                            src: '/audio/inside-out.mp3',
-                            title: 'Inside Out (2015)',
+            </div>
+        </section>
+
+        <section id="presque" ref="presque" class="scroll">
+            <div class="parallax parallax-two">
+                <div class="content">
+                    <h2 class="title">rain ma<span class="no-spacing">n</span></h2>
+                    <div class="player" ref="audioPlayerRef2">
+                        <AudioPlayer ref="audioElement2" :option="{
+                            src: '/audio/rain-man.mp3',
+                            title: 'Rain man (1988)',
                             coverImage: '',
                             progressBarColor: '#111111',
                             indicatorColor: '#111111',
-                        }" />
-                    </div>
-                    <div class="card" ref="card2">
-                        <p class="hidden">/</p>
-                        <p class="hidden">/</p>
+                            paused: true
+                        }"></AudioPlayer>
                     </div>
                 </div>
-                <div class="movie" ref="movie3" @click="startAnimation3">
-                    <img class="movie__images" src="/images/rogue-one.jpg" alt="Rogue One: A Star Wars Story image">
+            </div>
+        </section>
+
+        <section>
+            <div class="box">
+                <h1>fea<span class="no-spacing">r</span></h1>
+                <div class="content">
+                    <div>
+                        <p>Movie: Jaws (1975)</p>
+                        <p>Composer: John Williams<a href="#/john-williams" class="header-nav__link">More of him
+                                here</a></p>
+                    </div>
+                    <div>
+                        <p>Was it a good idea from my dad to let me watch this movie alone at the age of 6? Well it made me
+                            fall
+                            in love with movies of the 1970s at least, but I don't think I will ever forget the chills this
+                            score gave me the first time.
+                        </p>
+                    </div>
                 </div>
-                <div class="copy" ref="movie3copy">
-                    <img class="copy__images" src="/images/rogue-one.jpg" alt="Rogue One: A Star Wars Story image">
-                    <h4 ref="title3">Hop<span class="no-spacing">e</span></h4>
-                    <div class="player" ref="music3">
-                        <AudioPlayer :option="{
+            </div>
+        </section>
+
+        <section id="termine" ref="termine" class="scroll">
+            <div class="parallax parallax-three">
+                <div class="content">
+                    <h2 class="title">jaw<span class="no-spacing">s</span></h2>
+                    <div class="player" ref="audioPlayerRef3">
+                        <AudioPlayer ref="audioElement3" :option="{
+                            src: '/audio/jaws.mp3',
+                            title: 'Jaws (1975)',
+                            coverImage: '',
+                            progressBarColor: '#111111',
+                            indicatorColor: '#111111',
+                            paused: true
+                        }"></AudioPlayer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="box">
+                <h1>excitemen<span class="no-spacing">t</span></h1>
+                <div class="content">
+                    <div>
+                        <p>Movie: Rogue One (2016)</p>
+                        <p>Composer: Michael Giacchino<a href="#/michael-giacchino" class="header-nav__link">More of him
+                                here</a></p>
+                    </div>
+                    <div>
+                        <p>Michael Giacchino probably gave me one of my most favorite and intense movie scene of my life.
+                            What could be more exciting than one of the greatest villains of all time slaughtering rebels,
+                            if not to add an incredible background music?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mon" ref="mon" class="scroll">
+            <div class="parallax parallax-four">
+                <div class="content">
+                    <h2 class="title">rogue on<span class="no-spacing">e</span></h2>
+                    <div class="player" ref="audioPlayerRef4">
+                        <AudioPlayer ref="audioElement4" :option="{
                             src: '/audio/rogue-one.mp3',
-                            title: 'Rogue One: A Star Wars Story (2016)',
+                            title: 'Rogue One (2016)',
                             coverImage: '',
                             progressBarColor: '#111111',
                             indicatorColor: '#111111',
-                        }" />
-                    </div>
-                    <div class="card" ref="card3">
-                        <p class="hidden">/</p>
-                        <p class="hidden">/</p>
+                            paused: true
+                        }"></AudioPlayer>
                     </div>
                 </div>
-                <div class="movie" ref="movie4" @click="startAnimation4">
-                    <img class="movie__images" src="/images/dr-strange.jpg" alt="Doctor Strange image">
+            </div>
+        </section>
+
+        <section>
+            <div class="box">
+                <h1>hyp<span class="no-spacing">e</span></h1>
+                <div class="content">
+                    <div>
+                        <p>Movie: Spider Man Into Spiderverse (2018)</p>
+                        <p>Composer: Blackway & Black Caviar</p>
+                    </div>
+                    <div>
+                        <p>All of the movie led to this scene, all the build up and the tension find itself in this moment
+                            of the movie.
+                            I still can't find the words to describe how gratifying this scene was, with the score playing a
+                            big part in it.
+                        </p>
+                    </div>
                 </div>
-                <div class="copy" ref="movie4copy">
-                    <img class="copy__images" src="/images/dr-strange.jpg" alt="Doctor Strange Batman image">
-                    <h4 ref="title4" class="long-title">Inside the Mirro<span class="no-spacing">r</span></h4>
-                    <div class="player" ref="music4">
-                        <AudioPlayer :option="{
-                            src: '/audio/dr-strange.mp3',
-                            title: 'Doctor Strange (2016)',
+            </div>
+        </section>
+
+        <section id="tfe" ref="tfe" class="scroll">
+            <div class="parallax parallax-five">
+                <div class="content">
+                    <h2 class="title">spider ma<span class="no-spacing">n</span></h2>
+                    <div class="player" ref="audioPlayerRef5">
+                        <AudioPlayer ref="audioElement5" :option="{
+                            src: '/audio/spiderman.mp3',
+                            title: 'Spider Man Into Spiderverse (2018)',
                             coverImage: '',
                             progressBarColor: '#111111',
                             indicatorColor: '#111111',
-                        }" />
-                    </div>
-                    <div class="card" ref="card4">
-                        <p>Grammy nominee - Best Score Soundtrack for Visual Media</p>
-                        <p class="hidden">/</p>
-                    </div>
-                </div>
-                <div class="movie" ref="movie5" @click="startAnimation5">
-                    <img class="movie__images" src="/images/coco.jpg" alt="Coco image">
-                </div>
-                <div class="copy" ref="movie5copy">
-                    <img class="copy__images" src="/images/coco.jpg" alt="Coco image">
-                    <h4 ref="title5" class="long-title">Día de los Muerto<span class="no-spacing">s</span></h4>
-                    <div class="player" ref="music5">
-                        <AudioPlayer :option="{
-                            src: '/audio/coco.mp3',
-                            title: 'Coco (2017)',
-                            coverImage: '',
-                            progressBarColor: '#111111',
-                            indicatorColor: '#111111',
-                        }" />
-                    </div>
-                    <div class="card" ref="card5">
-                        <p>Grammy nominee - Best Score Soundtrack for Visual Media</p>
-                        <p class="hidden">/</p>
-                    </div>
-                </div>
-                <div class="movie" ref="movie6" @click="startAnimation6">
-                    <img class="movie__images" src="/images/the-batman.jpg" alt="The Batman image">
-                </div>
-                <div class="copy" ref="movie6copy">
-                    <img class="copy__images" src="/images/the-batman.jpg" alt="The Batman image">
-                    <h4 ref="title6">The Batma<span class="no-spacing">n</span></h4>
-                    <div class="player" ref="music6">
-                        <AudioPlayer :option="{
-                            src: '/audio/the-batman.mp3',
-                            title: 'The Batman (2022)',
-                            coverImage: '',
-                            progressBarColor: '#111111',
-                            indicatorColor: '#111111',
-                        }" />
-                    </div>
-                    <div class="card" ref="card6">
-                        <p>Grammy nominee - Best Score Soundtrack for Visual Media</p>
-                        <p class="hidden">/</p>
+                            paused: true
+                        }"></AudioPlayer>
                     </div>
                 </div>
             </div>
@@ -619,182 +624,297 @@ const startAnimation6 = () => {
 </template>
 
 <style scoped lang="scss">
-.container {
+.home-container::-webkit-scrollbar {
+    display: none;
+}
+
+.home-container {
     width: 100%;
-    height: 100%;
-    background-color: #FAFAFA;
+    height: 100vh;
+    scroll-snap-type: y proximity;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 
-    .title-container {
-        background: #FAFAFA;
+    .scroll {
+        scroll-snap-align: start;
+    }
+
+    .menu {
+        position: fixed;
+        z-index: 50;
+        height: 100%;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-        height: 30vh;
-        padding: 60px;
-        z-index: 10;
+        top: 0%;
+        color: #FAFAFA;
 
-        h1 {
-            font-size: clamp(20px, 4vw, 60px);
-            letter-spacing: 0.5em;
+        li {
+            cursor: pointer;
+            margin: 20px 20px;
+            display: flex;
+            align-items: center;
         }
 
-        h3 {
-            font-size: clamp(16px, 2vw, 20px);
-            margin-bottom: 1vh;
-            font-weight: 600;
-            color: rgb(155, 155, 155);
+        .line {
+            height: 4px;
+            width: 20px;
+            background-color: #FAFAFA;
+        }
 
-            span {
-                color: rgb(155, 155, 155);
+        .name {
+            opacity: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transform: translateX(-10px);
+            color: #FAFAFA;
+        }
+
+        .menu-item:hover .name {
+            opacity: 1;
+            transform: translateX(10px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-item .name {
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    .headphone-container {
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        background-color: #111111;
+        width: 100vw;
+        height: 100vh;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .headphone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                margin-top: 20px;
+                text-align: center;
+                text-transform: uppercase;
+                color: #FAFAFA;
+                letter-spacing: 0.2em;
             }
         }
     }
 
-    .parallax-container {
+    .background {
+        background-image: url('/images/sound.jpg');
+        background-position: top;
+        background-size: cover;
+        min-height: 330vh;
+        position: relative;
+        padding: 20px;
+        max-width: 100vw;
+
+        .mask {
+            width: 100%;
+            position: absolute;
+            inset: 0;
+            -webkit-mask: url('/images/mask.svg');
+            mask: url('/images/mask.svg');
+            -webkit-mask-position: top;
+            mask-position: top;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 20vh 0vh;
+            text-align: center;
+            text-transform: uppercase;
+            position: fixed;
+            width: 100%;
+
+            h1 {
+                font-size: clamp(20px, 4vw, 80px);
+                margin-bottom: 4vh;
+            }
+
+            h3 {
+                font-size: clamp(16px, 2vw, 30px);
+                margin-bottom: 4vh;
+            }
+        }
+    }
+
+    .middle {
+        margin-top: -230vh;
+        height: 200vh;
+        width: 100vw;
+        position: absolute;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        p {
+            max-width: 600px;
+            height: 20px;
+            text-align: center;
+            opacity: 0;
+        }
+    }
+
+    .box {
+        background: #111111;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        margin: 0 auto;
+        text-align: center;
+
+        h1 {
+            font-size: 35px;
+            letter-spacing: 8px;
+            color: #FAFAFA;
+            margin-bottom: 20px;
+        }
+
+        span {
+            color: #FAFAFA;
+        }
+
+        .content {
+            display: flex;
+
+            div {
+                width: 30vw;
+                margin: 20px;
+
+                p {
+                    text-align: left;
+                    margin-bottom: 2px;
+
+                    a {
+                        margin-left: 20px;
+                        font-size: 16px;
+                        color: rgb(170, 170, 170);
+                        text-decoration: underline;
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                    a:hover {
+                        color: #FAFAFA;
+                    }
+                }
+            }
+        }
+    }
+
+    .box-1 {
+        height: 100vh;
+        background-color: #292b31;
+    }
+
+    .parallax {
+        padding-top: 200px;
+        padding-bottom: 200px;
         overflow: hidden;
         position: relative;
+        height: 100vh;
         width: 100%;
-        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .content {
+            width: 100%;
+            height: 100%;
+
+            .title {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                letter-spacing: 0.2em;
+                font-size: clamp(60px, 8vw, 400px);
+                text-transform: uppercase;
+                color: #FAFAFA;
+
+                span {
+                    color: #FAFAFA;
+                }
+            }
+
+            .long-title {
+                font-size: clamp(60px, 5vw, 200px);
+            }
+
+            .player {
+                margin-top: -10vh;
+            }
+        }
+    }
+
+    .parallax-one {
+        background-image: url('/images/the-incredibles.jpg');
         background-attachment: fixed;
         background-size: cover;
         -moz-background-size: cover;
         -webkit-background-size: cover;
         background-repeat: no-repeat;
-        background-position: top center;
-        padding-top: 8vh;
-        background-image: url('/images/michael-giacchino.jpg');
+        background-position: center center;
     }
 
-    .nav-container {
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-x: hidden;
-        background-color: #FAFAFA;
-
-        .background {
-            position: absolute;
-            z-index: 10;
-            display: none;
-            width: 100vw;
-            height: 100vh;
-            cursor: pointer;
-        }
-
-        .copy {
-            z-index: 50;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            width: 10vw;
-            height: 60vh;
-            position: absolute;
-            opacity: 0;
-            background-color: #FAFAFA;
-
-            .copy__images {
-                width: 100%;
-                height: 100%;
-                opacity: 70%;
-                object-fit: cover;
-            }
-
-            h4 {
-                z-index: 10;
-                opacity: 0;
-                width: 100%;
-                text-align: center;
-                height: 30vh;
-                margin-top: -12vh;
-                font-size: clamp(60px, 8vw, 200px);
-            }
-
-            .long-title {
-                margin-top: -7vh;
-                font-size: clamp(60px, 5vw, 200px);
-            }
-
-            .player {
-                z-index: 49;
-                display: none;
-                width: 100%;
-                opacity: 0;
-            }
-
-            .card {
-                z-index: 48;
-                width: 100%;
-                height: 10vh;
-                display: flex;
-                opacity: 0;
-                padding-top: 20px;
-                justify-content: space-between;
-                align-items: flex-end;
-            }
-        }
-
-        .movie {
-            z-index: 20;
-            width: 10vw;
-            height: 60vh;
-            margin: 0px 0.5vw;
-            transition-duration: 0.5s;
-            cursor: pointer;
-
-            .movie__images {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-
-        .movie:hover {
-            scale: 1.1;
-        }
-
-        .wide {
-            pointer-events: none;
-        }
-    }
-}
-
-/* Media Queries */
-
-@media screen and (max-width: 959px) and (min-width: 768px) {
-    .home-container .block {
-        padding: 40px;
-        width: 620px;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .home-container .block {
-        padding: 30px;
+    .parallax-two {
+        background-image: url('/images/rain-man.jpeg');
+        background-attachment: fixed;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 
-    .home-container h2 {
-        font-size: 30px;
+    .parallax-three {
+        background-image: url('/images/jaws.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 
-    .home-container .block {
-        padding: 30px;
+    .parallax-four {
+        background-image: url('/images/rogue-one.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 
-    .home-container .parallax-one,
-    .home-container .parallax-two,
-    .home-container .parallax-three {
-        padding-top: 100px;
-        padding-bottom: 100px;
-    }
-}
-
-@media screen and (max-width: 479px) {
-    .home-container .block {
-        padding: 30px 15px;
+    .parallax-five {
+        background-image: url('/images/spiderman.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 }
 </style>
