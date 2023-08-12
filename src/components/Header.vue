@@ -10,6 +10,17 @@ const line2 = ref(null);
 const back = ref(null);
 const name = ref(null);
 const logo = ref(null);
+const header = ref(null);
+
+onMounted(() => {
+    gsap.from(header.value, {
+        delay: 0.25,
+        duration: 0.75,
+        opacity: 0,
+        autoAlpha: 0,
+        ease: 'black.out(1.7)',
+    })
+})
 
 const startAnimation1 = () => {
     const tl = gsap.timeline();
@@ -17,6 +28,7 @@ const startAnimation1 = () => {
     tl.to(nav.value, {
         duration: 0.2,
         display: "flex",
+        overflow: "hidden",
     })
         .to(nav.value, {
             duration: 0.2,
@@ -27,12 +39,23 @@ const startAnimation1 = () => {
             duration: 0.1,
             opacity: 0,
         })
+        .to(name.value, {
+            delay: -0.1,
+            duration: 0.1,
+            display: "none",
+        })
         .to(logo.value, {
+            delay: -0.1,
             duration: 0.1,
             opacity: 0,
         })
+        .to(logo.value, {
+            delay: -0.1,
+            duration: 0.1,
+            display: "none",
+        })
         .to(line1.value, {
-            delay: -0.6,
+            delay: -0.3,
             duration: 0.1,
             backgroundColor: 'white',
             y: '5px',
@@ -40,7 +63,7 @@ const startAnimation1 = () => {
             ease: "power1.inOut",
         })
         .to(line2.value, {
-            delay: -0.6,
+            delay: -0.3,
             duration: 0.1,
             backgroundColor: 'white',
             y: '-5px',
@@ -56,107 +79,96 @@ const startAnimation1 = () => {
     back.value.addEventListener('click', () => {
         tl.reverse();
     });
+
+    const event = new Event('header-animation-start');
+    document.dispatchEvent(event);
 };
 </script> 
 
 <template>
-    <div>
-        <div class="nav-container">
-            <div class="header-container">
-                <div ref="logo" class="header-logo"><svg class="svg" id="Layer_1" data-name="Layer 1"
+    <div ref="header" class="header-container">
+        <div class="header">
+            <a href="#/">
+                <div ref="logo" class="header__logo"><svg class="svg" id="Layer_1" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 225">
-                        <polygon
+                        <polygon fill="#111111"
                             points="86.67 100 130 125 130 175 86.67 200 43.33 225 0 200 0 150 43.33 175 86.67 150 86.67 100" />
-                        <polygon points="43.33 125 0 100 0 50 43.33 25 86.67 0 130 25 130 75 86.67 50 43.33 75 43.33 125" />
+                        <polygon fill="#111111"
+                            points="43.33 125 0 100 0 50 43.33 25 86.67 0 130 25 130 75 86.67 50 43.33 75 43.33 125" />
                     </svg>
                 </div>
-                <div class="header-name">
-                    <p ref="name">SOUNDTRACKS @2023</p>
-                </div>
-                <div class="button" @click="startAnimation1">
-                    <div class="button__line" ref="line1"></div>
-                    <div class="button__line" ref="line2"></div>
-                </div>
-                <div class="back-button hidden" ref="back">back</div>
+            </a>
+            <div class="header__name">
+                <h1 ref="name">SOUNDTRACKS @2023</h1>
             </div>
-            <div class="nav-menu" ref="nav">
-                <div class="menu-container">
-                    <div class="nav-link">
-                        <div ref="logo" class="nav-logo"><svg class="svg" id="Layer_1" data-name="Layer 1"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 225">
-                                <polygon
-                                    points="86.67 100 130 125 130 175 86.67 200 43.33 225 0 200 0 150 43.33 175 86.67 150 86.67 100" />
-                                <polygon
-                                    points="43.33 125 0 100 0 50 43.33 25 86.67 0 130 25 130 75 86.67 50 43.33 75 43.33 125" />
-                            </svg>
-                        </div>
+            <div class="button" @click="startAnimation1">
+                <div class="button__line" ref="line1"></div>
+                <div class="button__line" ref="line2"></div>
+            </div>
+            <div class="back-button hidden" ref="back">back</div>
+        </div>
+        <div class="nav-container" ref="nav">
+            <div class="nav">
+                <div class="nav__social">
+                    <div class="nav__logo"><svg class="svg" id="Layer_1" data-name="Layer 1"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 225">
+                            <polygon fill="#FAFAFA"
+                                points="86.67 100 130 125 130 175 86.67 200 43.33 225 0 200 0 150 43.33 175 86.67 150 86.67 100" />
+                            <polygon fill="#FAFAFA"
+                                points="43.33 125 0 100 0 50 43.33 25 86.67 0 130 25 130 75 86.67 50 43.33 75 43.33 125" />
+                        </svg>
                     </div>
-                    <div class="menu">
-                        <a href="#/" class="menu__link">hom<span class="no-spacing">e</span></a>
-                        <a href="#/hans-zimmer" class="menu__link">hans zimme<span class="no-spacing">r</span></a>
-                        <a href="#/john-williams" class="menu__link">john william<span class="no-spacing">s</span></a>
-                        <a href="#/michael-giacchino" class="menu__link">michael giacchin<span
-                                class="no-spacing">o</span></a>
+                    <div class="social">
+                        <a href="#/" class="social__link">Behanc<span class="no-spacing">e</span></a>
+                        <a href="#/" class="social__link">Instagra<span class="no-spacing">m</span></a>
+                        <a href="#/" class="social__link">Twitte<span class="no-spacing">r</span></a>
+                        <a href="#/" class="social__link">Linkedi<span class="no-spacing">n</span></a>
                     </div>
                 </div>
-                <!-- <router-link :to="{name: 'home'}"><h3>home</h3></router-link>
-                <router-link :to="{name: 'hans'}"><h3>hans zimmer</h3></router-link>
-                <router-link :to="{name: 'john'}"><h3>john williams</h3></router-link>
-                <router-link :to="{name: 'michael'}"><h3>michael giacchino</h3></router-link> -->
+                <div class="nav__menu">
+                    <div class="menu">
+                        <a href="#/" class="menu__link">Hom<span class="no-spacing">e</span></a>
+                        <a href="#/hans-zimmer" class="menu__link">Abou<span class="no-spacing">t</span></a>
+                        <a href="#/john-williams" class="menu__link">Contac<span class="no-spacing">t</span></a>
+                        <a href="#/michael-giacchino" class="menu__link">Credit<span class="no-spacing">s</span></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
-.nav-container {
-    .header-container {
-        width: 100%;
-        height: 10vh;
-        padding: 20px;
-        background-color: transparent;
-        position: fixed;
-        z-index: 50;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        mix-blend-mode: difference;
-        color: #111111;
-    }
+.header-container {
+    width: 100%;
+    height: 10vh;
 
-    .header-container {
+    .header {
         width: 100%;
         height: 10vh;
         padding: 20px;
-        background-color: transparent;
         position: fixed;
-        z-index: 50;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        mix-blend-mode: difference;
         color: #111111;
         z-index: 101;
 
-        .header-logo {
+        .header__logo {
             width: 35px;
+            cursor: pointer;
             padding-top: 5px;
 
             .svg {
-                height: 40px;
+                width: 35px;
             }
         }
 
-        .header-name {
+        .header__name {
 
-            p {
+            h1 {
                 color: #111111;
-                font-weight: 600;
             }
-        }
-
-        .header-void {
-            width: 35px;
         }
 
         .button {
@@ -179,11 +191,12 @@ const startAnimation1 = () => {
             z-index: 101;
             width: 35px;
             height: 35px;
+            cursor: pointer;
         }
     }
 
-    .nav-menu {
-        position: absolute;
+    .nav-container {
+        position: fixed;
         width: 100vw;
         height: 100vh;
         background-color: #111111;
@@ -194,56 +207,60 @@ const startAnimation1 = () => {
         align-items: center;
         justify-content: center;
 
-        .menu-container {
-            width: 80%;
+        .nav {
+            width: 60%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
 
-            .nav-link {
+            .nav__social {
                 display: flex;
                 flex-direction: column;
+                justify-content: space-between;
 
-                .nav-logo {
-                    width: 35px;
+                .nav__logo {
+                    width: 150px;
+                }
+
+                .social {
+                    display: flex;
+                    flex-direction: column;
+
+                    .social__link {
+                        font-size: 20px;
+                        font-weight: 400;
+                        color: #FAFAFA;
+                    }
+
+                    .social__link span {
+                        color: white;
+                    }
                 }
             }
-        }
 
-        .nav__link {
-            position: relative;
-            display: block;
-            text-transform: uppercase;
-            text-align: center;
-            color: white;
-            margin: 100px 20px;
-            letter-spacing: 0.2em;
-            transition: 0.5s;
-            padding: 0px 5px;
-        }
+            .nav__menu {
 
-        .nav__link span {
-            color: white;
-        }
+                .menu {
+                    display: flex;
+                    flex-direction: column;
 
-        .nav__link:last-child {
-            margin-right: 0px;
-        }
+                    .menu__link {
+                        font-size: 100px;
+                        font-weight: 400;
+                        line-height: 80px;
+                        margin-bottom: 20px;
+                        color: #FAFAFA;
+                    }
 
-        .nav__link::after {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 7px;
-            top: 11px;
-            left: 0px;
-            background: #b64f00;
-            transition: transform 0.5s;
-            transform: scaleX(0);
-            transform-origin: right;
-            z-index: -1;
-        }
+                    .menu__link:last-child {
+                        margin-bottom: 0;
+                    }
 
-        .nav__link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
+                    .menu__link span {
+                        color: white;
+                    }
+                }
+            }
         }
     }
 }
