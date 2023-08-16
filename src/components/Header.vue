@@ -83,6 +83,52 @@ const startAnimation1 = () => {
     const event = new Event('header-animation-start');
     document.dispatchEvent(event);
 };
+
+const links = ref([
+    { name: 'Behance', color: '', href: 'https://www.behance.net' },
+    { name: 'Instagram', color: '', href: 'https://www.instagram.com' },
+    { name: 'Twitter', color: '', href: 'https://twitter.com' },
+    { name: 'Linkedin', color: '', href: 'https://www.linkedin.com' }
+]);
+
+const changeColor = (index) => {
+    links.value.forEach((link, i) => {
+        if (i === index) {
+            link.color = '#FAFAFA';
+        } else {
+            link.color = '#555555';
+        }
+    });
+};
+
+const resetColors = () => {
+    links.value.forEach(link => {
+        link.color = '';
+    });
+};
+
+const menuItems = ref([
+    { label: 'Home', href: '#/' },
+    { label: 'About', href: '#/about' },
+    { label: 'Contact', href: '#/contact' },
+    { label: 'Credits', href: '#/credits' }
+]);
+
+const changePageColor = (index) => {
+    menuItems.value.forEach((menuItem, i) => {
+        if (i === index) {
+            menuItem.color = '#FAFAFA';
+        } else {
+            menuItem.color = '#555555';
+        }
+    });
+};
+
+const resetPageColors = () => {
+    menuItems.value.forEach(menuItem => {
+        menuItem.color = '';
+    });
+};
 </script> 
 
 <template>
@@ -119,18 +165,23 @@ const startAnimation1 = () => {
                         </svg>
                     </div>
                     <div class="social">
-                        <a href="#/" class="social__link">Behanc<span class="no-spacing">e</span></a>
-                        <a href="#/" class="social__link">Instagra<span class="no-spacing">m</span></a>
-                        <a href="#/" class="social__link">Twitte<span class="no-spacing">r</span></a>
-                        <a href="#/" class="social__link">Linkedi<span class="no-spacing">n</span></a>
+                        <a v-for="(link, index) in links" :key="index" :class="['social__link', `link${index + 1}`]"
+                            :style="{ color: link.color }" @mouseover="changeColor(index)" @mouseleave="resetColors"
+                            :href="link.href" target="_blank" rel="noopener noreferrer">
+                            {{ link.name }}
+                        </a>
                     </div>
                 </div>
                 <div class="nav__menu">
                     <div class="menu">
-                        <a href="#/" class="menu__link">Hom<span class="no-spacing">e</span></a>
-                        <a href="#/hans-zimmer" class="menu__link">Abou<span class="no-spacing">t</span></a>
-                        <a href="#/john-williams" class="menu__link">Contac<span class="no-spacing">t</span></a>
-                        <a href="#/michael-giacchino" class="menu__link">Credit<span class="no-spacing">s</span></a>
+                        <div class="menu">
+                            <a v-for="(menuItem, index) in menuItems" :key="index"
+                                :class="['menu__link', `menuItem${index + 1}`]" :style="{ color: menuItem.color }"
+                                @mouseover="changePageColor(index)" @mouseleave="resetPageColors" :href="menuItem.href"
+                                rel="noopener noreferrer">
+                                {{ menuItem.label }}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -230,6 +281,7 @@ const startAnimation1 = () => {
                         font-size: 20px;
                         font-weight: 400;
                         color: #FAFAFA;
+                        transition: all 0.25s ease-in-out;
                     }
 
                     .social__link span {
@@ -250,6 +302,7 @@ const startAnimation1 = () => {
                         line-height: 80px;
                         margin-bottom: 20px;
                         color: #FAFAFA;
+                        transition: all 0.25s ease-in-out;
                     }
 
                     .menu__link:last-child {

@@ -25,6 +25,16 @@ const catchphrase3 = ref(null);
 const catchphrasetitle = ref(null);
 const line1 = ref(null);
 const line2 = ref(null);
+const block1 = ref(null);
+const block2 = ref(null);
+const block3 = ref(null);
+const block4 = ref(null);
+const block5 = ref(null);
+const block6 = ref(null);
+const block7 = ref(null);
+const block8 = ref(null);
+const composerintro = ref(null);
+
 
 
 //GSAP ANIMATION
@@ -167,12 +177,26 @@ onMounted(() => {
 );
 
 onMounted(() => {
+    gsap.to(composerintro.value, {
+        scrollTrigger: {
+            trigger: composerintro.value,
+            scrub: true,
+            start: "50% 30%",
+            end: "50% top",
+            invalidateOnResize: true,
+        },
+        opacity: 0,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
     gsap.to(line1.value, {
         scrollTrigger: {
             trigger: line1.value,
             start: "50% 90%",
             invalidateOnResize: true,
-            markers: true
         },
         width: "100%",
         duration: 0.5,
@@ -186,7 +210,6 @@ onMounted(() => {
             trigger: line2.value,
             start: "50% 90%",
             invalidateOnResize: true,
-            markers: true
         },
         width: "100%",
         duration: 0.75,
@@ -216,6 +239,126 @@ onMounted(() => {
         },
         opacity: 0.25,
         duration: 0.75,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.from(block1.value, {
+        scrollTrigger: {
+            trigger: block1.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: 100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(block2.value, {
+        scrollTrigger: {
+            trigger: block2.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: -100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.from(block3.value, {
+        scrollTrigger: {
+            trigger: block3.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: 100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(block4.value, {
+        scrollTrigger: {
+            trigger: block4.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: -100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.from(block5.value, {
+        scrollTrigger: {
+            trigger: block5.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: 100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(block6.value, {
+        scrollTrigger: {
+            trigger: block6.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: -100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.from(block7.value, {
+        scrollTrigger: {
+            trigger: block7.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: 100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(block8.value, {
+        scrollTrigger: {
+            trigger: block8.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: -100,
+        duration: 1,
     });
 }
 );
@@ -251,8 +394,9 @@ onMounted(() => {
         <main ref="all">
             <section class="intro-container">
                 <div class="intro">
-                    <div class="intro__title">
-                        <h2 ref="title" class="title">Discover The Sound of Movies</h2>
+                    <div ref="title" class="intro__title">
+                        <h2 class="title">Discover The Sound of Movies</h2>
+                        <p>Scroll Down</p>
                     </div>
                     <div ref="image" class="intro__image">
                         <div class="mask">
@@ -305,10 +449,51 @@ onMounted(() => {
             <div class="splitter hidden">line</div>
             <section class="composer-container">
                 <div class="composer">
-                    <div class="composer__title">Composers</div>
-                    <div class="composer__text">Here is the first selection of composers disponible for you to discover</div>
-                    <div class="composer__box">
-
+                    <div class="composer__container">
+                        <div ref="composerintro" class="composer__intro">
+                            <div class="composer__title">Composers</div>
+                            <div class="composer__text">Here is the first selection of composers disponible for you to
+                                discover.
+                            </div>
+                        </div>
+                        <div class="composer__box">
+                            <div class="composer__block margin1">
+                                <div ref="block1" class="composer__cover hidden">white</div>
+                                <a href="#/hans-zimmer">
+                                    <div class="composer__image image1"></div>
+                                </a>
+                                <div ref="block2" class="composer__cover composer__cover--active">
+                                    <div class="composer__name">Hans zimmer <span>- The virtuose of </span></div>
+                                </div>
+                            </div>
+                            <div class="composer__block margin2">
+                                <div ref="block3" class="composer__cover hidden">white</div>
+                                <a href="#/john-williams">
+                                    <div class="composer__image image2"></div>
+                                </a>
+                                <div ref="block4" class="composer__cover composer__cover--active">
+                                    <div class="composer__name">Daniel Pemberton <span>- The virtuose of </span></div>
+                                </div>
+                            </div>
+                            <div class="composer__block margin3">
+                                <div ref="block5" class="composer__cover hidden">white</div>
+                                <a href="#/michael-giacchino">
+                                    <div class="composer__image image3"></div>
+                                </a>
+                                <div ref="block6" class="composer__cover composer__cover--active">
+                                    <div class="composer__name">Michael Giacchino <span>- The virtuose of </span></div>
+                                </div>
+                            </div>
+                            <div class="composer__block margin4">
+                                <div ref="block7" class="composer__cover hidden">white</div>
+                                <a href="#/">
+                                    <div class="composer__image image4 hover-gray"></div>
+                                </a>
+                                <div ref="block8" class="composer__cover composer__cover--active">
+                                    <div class="composer__name">John Williams <span>- Coming Soon</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -334,8 +519,10 @@ onMounted(() => {
     align-items: center;
     text-align: center;
 
+
     .intro__title {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         max-width: 80%;
@@ -344,11 +531,16 @@ onMounted(() => {
         .title {
             font-size: clamp(1rem, 7vw, 9rem);
             line-height: clamp(20px, 7vw, 140px);
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: clamp(1rem, 1.5vw, 2rem);
         }
     }
 
     .intro__image {
-        height: 110vh;
+        height: 120vh;
         width: 60%;
         background-image: url('/images/sound.jpg');
         background-position: top;
@@ -448,6 +640,139 @@ onMounted(() => {
                 font-size: clamp(1rem, 1vw, 2rem);
                 line-height: clamp(10px, 2vw, 30px);
                 width: 50%;
+            }
+        }
+    }
+}
+
+.composer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+
+    .composer__container {
+        width: 100%;
+
+        .composer__intro {
+            width: 50%;
+            margin-bottom: 10vh;
+            position: relative;
+            z-index: 10;
+
+            .composer__title {
+                font-size: clamp(2rem, 4vw, 6rem);
+                font-weight: 600;
+                margin-bottom: 4vh;
+            }
+
+            .composer__text {
+                font-size: clamp(1rem, 2vw, 2rem);
+            }
+        }
+
+        .composer__box {
+            position: relative;
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 50px;
+            padding: 0 10vw;
+            margin-top: -100px;
+            z-index: 5;
+
+            .margin1 {
+                position: relative;
+                z-index: 4;
+            }
+
+            .margin2 {
+                position: relative;
+                margin-top: 25vh;
+                z-index: 3;
+            }
+
+            .margin3 {
+                position: relative;
+                margin-top: -50vh;
+                z-index: 2;
+            }
+
+            .margin4 {
+                position: relative;
+                margin-top: -25vh;
+                z-index: 1;
+            }
+
+            .composer__block {
+                width: 40vw;
+                height: 120vh;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                width: 100%;
+
+                .composer__cover {
+                    position: relative;
+                    width: 101%;
+                    height: 20vh;
+                    background-color: #FAFAFA;
+                    z-index: 10;
+
+                    &.composer__cover--active {
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                    .composer__name {
+                        margin-top: 10vh;
+                        font-size: clamp(1rem, 1.5vw, 3rem);
+                        font-weight: 600;
+
+                        span {
+                            font-weight: 400;
+                            font-size: clamp(1rem, 1.5vw, 3rem);
+                        }
+                    }
+                }
+
+                .composer__image {
+                    background-position: 40%;
+                    background-size: cover;
+                    height: 40vw;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: all 0.5s ease-in-out;
+                    overflow: hidden;
+                    cursor: pointer;
+                }
+
+                .composer__image:hover {
+                    transform: scale(0.95);
+                }
+
+                .image1 {
+                    background-image: url('/images/hans-zimmer.jpg');
+                }
+
+                .image2 {
+                    background-image: url('/images/john-williams.jpg');
+                }
+
+                .image3 {
+                    background-image: url('/images/michael-giacchino.jpg');
+                }
+
+                .image4 {
+                    background-image: url('/images/john-williams.jpg');
+                }
+
+                .hover-gray:hover {
+                    filter: grayscale(100%);
+                }
             }
         }
     }

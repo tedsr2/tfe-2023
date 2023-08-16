@@ -14,7 +14,30 @@ onMounted(() => {
         ease: 'black.out(1.7)',
     })
 })
-</script> 
+
+const links = ref([
+    { name: 'Behance', color: '', href: 'https://www.behance.net' },
+    { name: 'Instagram', color: '', href: 'https://www.instagram.com' },
+    { name: 'Twitter', color: '', href: 'https://twitter.com' },
+    { name: 'Linkedin', color: '', href: 'https://www.linkedin.com' }
+]);
+
+const changeColor = (index) => {
+    links.value.forEach((link, i) => {
+        if (i === index) {
+            link.color = '#111111';
+        } else {
+            link.color = '#CACACA';
+        }
+    });
+};
+
+const resetColors = () => {
+    links.value.forEach(link => {
+        link.color = '';
+    });
+};
+</script>
 
 <template>
     <div class="footer-container">
@@ -37,10 +60,11 @@ onMounted(() => {
                 <div class="footer__social">
                     <p class="footer__follow">follow us</p>
                     <div class="footer__links">
-                        <a href="#/" class="footer__link">Behanc<span class="no-spacing">e</span></a>
-                        <a href="#/" class="footer__link">Instagra<span class="no-spacing">m</span></a>
-                        <a href="#/" class="footer__link">Twitte<span class="no-spacing">r</span></a>
-                        <a href="#/" class="footer__link">Linkedi<span class="no-spacing">n</span></a>
+                        <a v-for="(link, index) in links" :key="index" :class="['footer__link', `link${index + 1}`]"
+                            :style="{ color: link.color }" @mouseover="changeColor(index)" @mouseleave="resetColors"
+                            :href="link.href" target="_blank" rel="noopener noreferrer">
+                            {{ link.name }}
+                        </a>
                     </div>
                 </div>
                 <div ref="rights" class="footer__rights hidden">©2023 Soundtracks. All rights reserved</div>
@@ -100,6 +124,7 @@ onMounted(() => {
                         font-weight: 700;
                         font-size: 40px;
                         line-height: 40px;
+                        transition: all 0.25s ease-in-out;
                     }
                 }
             }

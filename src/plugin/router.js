@@ -14,6 +14,15 @@ const router = createRouter({
         },
         {
             path: '/michael-giacchino', name: 'michael', component: () => import('../views/Michael.vue')
+        },
+        {
+            path: '/about', name: 'about', component: () => import('../views/About.vue')
+        },
+        {
+            path: '/contact', name: 'contact', component: () => import('../views/Contact.vue')
+        },
+        {
+            path: '/credits', name: 'credits', component: () => import('../views/Credits.vue')
         }
     ],
 })

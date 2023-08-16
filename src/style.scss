@@ -22,11 +22,12 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   scroll-behavior: smooth;
+  background-color: #fafafa;
 }
 
 body {
   scroll-behavior: smooth;
-  background-color: #ffffff;
+  background-color: #fafafa;
 }
 
 *,
@@ -107,8 +108,8 @@ h4 {
 
 p {
   font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 24px;
   color: #111111;
 }
 

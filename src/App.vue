@@ -5,12 +5,18 @@ import Hans from './views/Hans.vue'
 import John from './views/John.vue'
 import Michael from './views/Michael.vue'
 import NotFound from './views/NotFound.vue'
+import Contact from './views/Contact.vue';
+import About from './views/About.vue';
+import Credits from './views/Credits.vue';
 
 const routes = {
   '/': Home,
   '/hans-zimmer': Hans,
   '/john-williams': John,
-  '/michael-giacchino': Michael
+  '/michael-giacchino': Michael,
+  '/about': About,
+  '/contact': Contact,
+  '/credits': Credits
 }
 
 export default {
