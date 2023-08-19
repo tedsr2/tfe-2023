@@ -51,19 +51,18 @@ const resetColors = () => {
             <div class="contact">
                 <div class="contact__box">
                     <div class="contact__block">
-                        <div>Visits us</div>
+                        <div class="contact__text">Send us a message on</div>
                         <div class="contact__links">
-                            <a v-for="(link, index) in links" :key="index" :class="['contact__link', `link${index + 1}`]"
-                                :style="{ color: link.color }" @mouseover="changeColor(index)" @mouseleave="resetColors"
-                                :href="link.href" target="_blank" rel="noopener noreferrer">
-                                {{ link.name }}
-                            </a>
+                            <a class="contact__link" href="https://www.instagram.com" target="_blank"
+                                rel="noopener noreferrer">Instagram</a>
                         </div>
+                        <div class="contact__text">Visit us</div>
+                        <div class="contact__address">Av. Comte de Smet de Nayer 20, 5000 Namur</div>
                     </div>
                     <div class="contact__block">
                         <div class="contact__title">We would love you to leave us a word.</div>
                         <div class="contact__subtitle">Whether it's to report a problem, ask a question, or just say hello,
-                            we'd love to hear from you</div>
+                            we'd love to hear from you.</div>
                         <form class="contact__form" method="post" action="#">
                             <div class="form__el">
                                 <input required type="name" id="name" name="name">
@@ -96,15 +95,28 @@ const resetColors = () => {
         display: flex;
         height: 100%;
         justify-content: space-between;
-        margin-top: 10vh;
+        margin-top: 14vh;
+        margin-bottom: 14vh;
 
         .contact__block {
             display: flex;
             flex-direction: column;
+            width: 50%;
+
+            .contact__text {
+                font-size: clamp(1rem, 2vw, 3rem);
+                line-height: clamp(25px, 2.5vw, 50px);
+                font-weight: 500;
+            }
+
+            .contact__address {
+                font-weight: 600;
+            }
 
             .contact__links {
                 display: flex;
                 flex-direction: column;
+                margin-bottom: 40px;
 
                 .contact__link {
                     text-transform: uppercase;
@@ -113,14 +125,29 @@ const resetColors = () => {
                     line-height: 40px;
                     transition: all 0.25s ease-in-out;
                 }
+
+                .contact__link:hover {
+                    color: #CACACA;
+                }
             }
 
             .contact__title {
                 display: flex;
                 flex-direction: column;
-                font-size: clamp(2rem, 2vw, 2rem);
-                line-height: clamp(35px, 3vw, 40px);
-                margin-bottom: 20px;
+                text-transform: uppercase;
+                font-size: clamp(2rem, 6vw, 8rem);
+                line-height: clamp(35px, 5.5vw, 140px);
+                font-weight: 700;
+                margin-bottom: 40px;
+            }
+
+            .contact__subtitle {
+                display: flex;
+                flex-direction: column;
+                font-size: clamp(1rem, 2vw, 3rem);
+                line-height: clamp(25px, 2.5vw, 50px);
+                font-weight: 500;
+                margin-bottom: 40px;
             }
 
             .contact__form {
@@ -160,12 +187,12 @@ const resetColors = () => {
 
                 .form__el input:focus+label {
                     background-color: #FAFAFA;
-                    transform: translateX(-90px) translateY(-40px) scale(0.7);
+                    transform: translateX(-6.5vw) translateY(-40px) scale(0.7);
                     transition: ease-in-out 0.3s;
                 }
 
                 .form__el input:valid+label {
-                    transform: translateX(-90px) translateY(-40px) scale(0.7);
+                    transform: translateX(-6.5vw) translateY(-40px) scale(0.7);
                 }
 
                 .form__button {

@@ -60,8 +60,9 @@ onMounted(() => {
     align-items: flex-start;
     justify-content: center;
     padding: 60px;
-    font-size: clamp(2rem, 3vw, 4rem);
-    line-height: clamp(35px, 3vw, 50px);
+    font-size: clamp(2rem, 6vw, 8rem);
+    line-height: clamp(35px, 5.5vw, 140px);
+    font-weight: 700;
 
     .about__box {
         display: flex;

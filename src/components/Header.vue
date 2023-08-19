@@ -8,7 +8,6 @@ const nav = ref(null);
 const line1 = ref(null);
 const line2 = ref(null);
 const back = ref(null);
-const name = ref(null);
 const logo = ref(null);
 const header = ref(null);
 
@@ -34,15 +33,6 @@ const startAnimation1 = () => {
             duration: 0.2,
             opacity: 100,
             ease: "power1.inOut",
-        })
-        .to(name.value, {
-            duration: 0.1,
-            opacity: 0,
-        })
-        .to(name.value, {
-            delay: -0.1,
-            duration: 0.1,
-            display: "none",
         })
         .to(logo.value, {
             delay: -0.1,
@@ -133,6 +123,9 @@ const resetPageColors = () => {
 
 <template>
     <div ref="header" class="header-container">
+        <div class="header__name">
+                <h1>SOUNDTRACKS @2023</h1>
+            </div>
         <div class="header">
             <a href="#/">
                 <div ref="logo" class="header__logo"><svg class="svg" id="Layer_1" data-name="Layer 1"
@@ -144,9 +137,6 @@ const resetPageColors = () => {
                     </svg>
                 </div>
             </a>
-            <div class="header__name">
-                <h1 ref="name">SOUNDTRACKS @2023</h1>
-            </div>
             <div class="button" @click="startAnimation1">
                 <div class="button__line" ref="line1"></div>
                 <div class="button__line" ref="line2"></div>
@@ -194,6 +184,17 @@ const resetPageColors = () => {
     width: 100%;
     height: 10vh;
 
+    .header__name {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            h1 {
+                color: #111111;
+            }
+        }
+
     .header {
         width: 100%;
         height: 10vh;
@@ -202,7 +203,6 @@ const resetPageColors = () => {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: #111111;
         z-index: 101;
 
         .header__logo {
@@ -212,13 +212,6 @@ const resetPageColors = () => {
 
             .svg {
                 width: 35px;
-            }
-        }
-
-        .header__name {
-
-            h1 {
-                color: #111111;
             }
         }
 
@@ -270,7 +263,7 @@ const resetPageColors = () => {
                 justify-content: space-between;
 
                 .nav__logo {
-                    width: 150px;
+                    width: 140px;
                 }
 
                 .social {

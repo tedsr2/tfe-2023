@@ -772,6 +772,7 @@ onMounted(() => {
 
                 .hover-gray:hover {
                     filter: grayscale(100%);
+                    transform: none;
                 }
             }
         }
@@ -780,13 +781,13 @@ onMounted(() => {
 
 @media screen and (max-width: 1000px) {
 
-    .intro::v-deep .intro__text {
+    .intro:deep(.intro__text) {
         margin-left: 26vw;
     }
 }
 
 @media screen and (max-width: 800px) {
-    .intro::v-deep .intro__title {
+    .intro:deep(.intro__title) {
         height: 40vh;
 
         .title {
@@ -794,12 +795,12 @@ onMounted(() => {
         }
     }
 
-    .intro::v-deep .intro__image {
+    .intro:deep(.intro__image) {
         width: 100%;
         height: 50vh;
     }
 
-    .intro::v-deep .intro__text {
+    .intro:deep(.intro__text) {
         margin-left: 4vw;
     }
 }
