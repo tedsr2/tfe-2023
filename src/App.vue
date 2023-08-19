@@ -4,6 +4,8 @@ import Home from './views/Home.vue'
 import Hans from './views/Hans.vue'
 import John from './views/John.vue'
 import Michael from './views/Michael.vue'
+import Daniel from './views/Daniel.vue'
+import Alex from './views/Alex.vue'
 import NotFound from './views/NotFound.vue'
 import Contact from './views/Contact.vue';
 import About from './views/About.vue';
@@ -14,6 +16,8 @@ const routes = {
   '/hans-zimmer': Hans,
   '/john-williams': John,
   '/michael-giacchino': Michael,
+  '/daniel-pemberton': Daniel,
+  '/alexandre-desplat': Alex,
   '/about': About,
   '/contact': Contact,
   '/credits': Credits

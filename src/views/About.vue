@@ -60,8 +60,8 @@ onMounted(() => {
     align-items: flex-start;
     justify-content: center;
     padding: 60px;
-    font-size: clamp(2rem, 6vw, 8rem);
-    line-height: clamp(35px, 5.5vw, 140px);
+    font-size: clamp(4rem, 6vw, 8rem);
+    line-height: clamp(60px, 8vw, 140px);
     font-weight: 700;
 
     .about__box {
@@ -72,7 +72,7 @@ onMounted(() => {
             display: flex;
             flex-direction: column;
             padding-right: 100px;
-            width: 24vw;
+            width: clamp(24vw, 30vw, 34vw);
 
             .about__title {
                 display: flex;
@@ -99,5 +99,39 @@ onMounted(() => {
             }
         }
     }
+}
+
+@media screen and (max-width: 1000px) {
+
+.about__box {
+    flex-direction: column;
+
+    .about__block {
+        width: 50vw !important;
+        margin-bottom: 40px;
+    }
+}
+}
+
+@media screen and (max-width: 800px) {
+
+.about__box {
+
+    .about__block {
+        width: 75vw !important;
+    }
+}
+}
+
+@media screen and (max-width: 600px) {
+
+.about__box {
+    width: 100%;
+
+    .about__block {
+        padding-right: 0px !important;
+        width: 100% !important;
+    }
+}
 }
 </style>

@@ -591,7 +591,7 @@ onMounted(() => {
                                 }" />
                             </div>
                         </div>
-                        <div class="disco__box">
+                        <div class="disco__box disco__box--text">
                             <h3 class="disco__date">1988</h3>
                             <p class="disco__text">Rain man was his first huge success as a composer, bringing him an Oscar.
                                 While working on it, Zimmer was determined to create a score
@@ -614,7 +614,7 @@ onMounted(() => {
                                 }" />
                             </div>
                         </div>
-                        <div class="disco__box">
+                        <div class="disco__box disco__box--text">
                             <h3 class="disco__date">1994</h3>
                             <p class="disco__text">When composing the iconic music for "The Lion King," Zimmer drew
                                 inspiration from African rhythms and melodies. The result was a soundtrack that not only
@@ -634,7 +634,7 @@ onMounted(() => {
                                 }" />
                             </div>
                         </div>
-                        <div class="disco__box">
+                        <div class="disco__box disco__box--text">
                             <h3 class="disco__date">2000</h3>
                             <p class="disco__text">The powerful and sweeping score of "Gladiator" became one of Zimmer's
                                 most recognized works. He collaborated with Lisa Gerrard to incorporate her haunting vocals,
@@ -657,7 +657,7 @@ onMounted(() => {
                                 }" />
                             </div>
                         </div>
-                        <div class="disco__box">
+                        <div class="disco__box disco__box--text">
                             <h3 class="disco__date">2010</h3>
                             <p class="disco__text">The score of "Inception" features the memorable track "Time," which
                                 Zimmer wrote to mirror the concept of layered dreams in the film. He used a ticking sound
@@ -679,7 +679,7 @@ onMounted(() => {
                                 }" />
                             </div>
                         </div>
-                        <div class="disco__box">
+                        <div class="disco__box disco__box--text">
                             <h3 class="disco__date">2012</h3>
                             <p class="disco__text">Zimmer's collaboration with James Newton Howard on "Batman Begins" laid
                                 the foundation for the trilogy's distinctive musical style. For "The Dark Knight," Zimmer
@@ -700,7 +700,7 @@ onMounted(() => {
                                 }" />
                             </div>
                         </div>
-                        <div class="disco__box">
+                        <div class="disco__box disco__box--text">
                             <h3 class="disco__date">2014</h3>
                             <p class="disco__text">Hans Zimmer's score for "Interstellar" involved a unique approach.
                                 Director Christopher Nolan provided Zimmer with only a single page of handwritten text
@@ -721,7 +721,7 @@ onMounted(() => {
                                 }" />
                             </div>
                         </div>
-                        <div class="disco__box">
+                        <div class="disco__box disco__box--text">
                             <h3 class="disco__date">2017</h3>
                             <p class="disco__text">To capture the intensity of the evacuation at Dunkirk, Zimmer composed
                                 the soundtrack for "Dunkirk" with a ticking clock motif woven throughout. This musical
@@ -742,7 +742,7 @@ onMounted(() => {
                                 }" />
                             </div>
                         </div>
-                        <div class="disco__box">
+                        <div class="disco__box disco__box--text">
                             <h3 class="disco__date">2021</h3>
                             <p class="disco__text">In crafting the score for "Dune," Zimmer drew inspiration from the desert
                                 landscapes and rich cultural tapestry of the story's universe. He used a blend of
@@ -809,8 +809,8 @@ onMounted(() => {
         margin-bottom: -10vh;
 
         p {
-            font-size: clamp(2rem, 2vw, 2.5rem);
-            line-height: clamp(35px, 2.5vw, 50px);
+            font-size: clamp(1.2rem, 2vw, 2.5rem);
+            line-height: clamp(25px, 2.5vw, 50px);
         }
     }
 }
@@ -872,6 +872,50 @@ onMounted(() => {
                 width: 100%;
                 object-fit: cover;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .disco__block {
+
+        .disco__box--image {
+            .disco__image {
+                width: 100% !important;
+            }
+        }
+
+        .disco__box--text {
+
+            .disco__text {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .intro__text {
+        width: 100% !important;
+        padding: 0px 60px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .disco__block {
+        flex-direction: column-reverse;
+        align-items: center;
+        height: auto !important;
+
+        .disco__box {
+            width: 100% !important;
+        }
+
+        .disco__box--image {
+            padding: 60px !important;
         }
     }
 }

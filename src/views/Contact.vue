@@ -214,4 +214,33 @@ const resetColors = () => {
         }
     }
 }
+
+@media screen and (max-width: 800px) {
+
+    .contact {
+
+        .contact__box {
+            flex-direction: column;
+
+            .contact__block {
+                width: 100% !important;
+
+                .contact__address {
+                    margin-bottom: 100px;
+                }
+            }
+        }
+    }
+
+    .contact__form {
+
+        .form__el input:focus+label {
+            transform: translateX(-11.5vw) translateY(-40px) scale(0.7) !important;
+        }
+
+        .form__el input:valid+label {
+            transform: translateX(-11.5vw) translateY(-40px) scale(0.7) !important;
+        }
+    }
+}
 </style>

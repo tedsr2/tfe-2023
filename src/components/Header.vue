@@ -124,8 +124,8 @@ const resetPageColors = () => {
 <template>
     <div ref="header" class="header-container">
         <div class="header__name">
-                <h1>SOUNDTRACKS @2023</h1>
-            </div>
+            <h1>SOUNDTRACKS @2023</h1>
+        </div>
         <div class="header">
             <a href="#/">
                 <div ref="logo" class="header__logo"><svg class="svg" id="Layer_1" data-name="Layer 1"
@@ -185,15 +185,15 @@ const resetPageColors = () => {
     height: 10vh;
 
     .header__name {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+        position: absolute;
+        top: 28px;
+        left: 50%;
+        transform: translateX(-50%);
 
-            h1 {
-                color: #111111;
-            }
+        h1 {
+            color: #111111;
         }
+    }
 
     .header {
         width: 100%;
@@ -206,12 +206,12 @@ const resetPageColors = () => {
         z-index: 101;
 
         .header__logo {
-            width: 35px;
+            width: 30px;
             cursor: pointer;
             padding-top: 5px;
 
             .svg {
-                width: 35px;
+                width: 30px;
             }
         }
 
@@ -252,7 +252,7 @@ const resetPageColors = () => {
         justify-content: center;
 
         .nav {
-            width: 60%;
+            width: 50%;
             max-width: 800px;
             display: flex;
             justify-content: space-between;
@@ -263,7 +263,7 @@ const resetPageColors = () => {
                 justify-content: space-between;
 
                 .nav__logo {
-                    width: 140px;
+                    width: clamp(60px, 10vw, 140px);
                 }
 
                 .social {
@@ -284,15 +284,16 @@ const resetPageColors = () => {
             }
 
             .nav__menu {
+                margin-left: 20px;
 
                 .menu {
                     display: flex;
                     flex-direction: column;
 
                     .menu__link {
-                        font-size: 100px;
+                        font-size: clamp(40px, 10vw, 100px);
                         font-weight: 400;
-                        line-height: 80px;
+                        line-height: clamp(20px, 10vw, 80px);
                         margin-bottom: 20px;
                         color: #FAFAFA;
                         transition: all 0.25s ease-in-out;
@@ -308,6 +309,12 @@ const resetPageColors = () => {
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header-container:deep(.header__name) {
+        display: none;
     }
 }
 </style>

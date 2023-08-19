@@ -131,4 +131,24 @@ const resetColors = () => {
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    .footer-container:deep(.footer__block) {
+
+        .footer__social {
+            flex-direction: column;
+
+            .footer__links {
+                padding: 0 !important;
+            }
+        }
+        .footer__logo {
+                width: 40px !important;
+
+                .svg {
+                    width: 40px !important;
+                }
+            }
+    }
+}
 </style>

@@ -62,7 +62,7 @@ onMounted(() => {
     align-items: flex-start;
     justify-content: center;
     padding: 60px;
-    font-size: clamp(2rem, 6vw, 8rem);
+    font-size: clamp(4rem, 6vw, 8rem);
     line-height: clamp(35px, 5.5vw, 140px);
     font-weight: 700;
 
@@ -74,7 +74,7 @@ onMounted(() => {
             display: flex;
             flex-direction: column;
             padding-right: 100px;
-            width: 34vw;
+            width: clamp(24vw, 36vw, 40vw);
 
             .credits__title {
                 display: flex;
@@ -101,5 +101,38 @@ onMounted(() => {
             }
         }
     }
+}
+
+@media screen and (max-width: 1000px) {
+
+.credits__box {
+    flex-direction: column;
+
+    .credits__block {
+        width: 50vw !important;
+        margin-bottom: 40px;
+    }
+}
+}
+
+@media screen and (max-width: 800px) {
+
+.credits__box {
+
+    .credits__block {
+        width: 75vw !important;
+    }
+}
+}
+
+@media screen and (max-width: 600px) {
+
+.credits__box {
+
+    .credits__block {
+        padding-right: 0px !important;
+        width: 100% !important;
+    }
+}
 }
 </style>

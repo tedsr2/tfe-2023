@@ -16,6 +16,12 @@ const router = createRouter({
             path: '/michael-giacchino', name: 'michael', component: () => import('../views/Michael.vue')
         },
         {
+            path: '/daniel-pemberton', name: 'daniel', component: () => import('../views/Daniel.vue')
+        },
+        {
+            path: '/alexandre-desplat', name: 'alex', component: () => import('../views/Alex.vue')
+        },
+        {
             path: '/about', name: 'about', component: () => import('../views/About.vue')
         },
         {

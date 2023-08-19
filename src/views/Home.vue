@@ -33,6 +33,10 @@ const block5 = ref(null);
 const block6 = ref(null);
 const block7 = ref(null);
 const block8 = ref(null);
+const block9 = ref(null);
+const block10 = ref(null);
+const block11 = ref(null);
+const block12 = ref(null);
 const composerintro = ref(null);
 
 
@@ -363,6 +367,66 @@ onMounted(() => {
 }
 );
 
+onMounted(() => {
+    gsap.from(block9.value, {
+        scrollTrigger: {
+            trigger: block10.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: 100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(block10.value, {
+        scrollTrigger: {
+            trigger: block10.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: -100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.from(block11.value, {
+        scrollTrigger: {
+            trigger: block11.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: 100,
+        duration: 1,
+    });
+}
+);
+
+onMounted(() => {
+    gsap.to(block12.value, {
+        scrollTrigger: {
+            trigger: block12.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: -100,
+        duration: 1,
+    });
+}
+);
+
 //GSAP RELOAD OPACITY ANIMATION
 
 onMounted(() => {
@@ -463,16 +527,16 @@ onMounted(() => {
                                     <div class="composer__image image1"></div>
                                 </a>
                                 <div ref="block2" class="composer__cover composer__cover--active">
-                                    <div class="composer__name">Hans zimmer <span>- The virtuose of </span></div>
+                                    <div class="composer__name">Hans zimmer <span>- German</span></div>
                                 </div>
                             </div>
                             <div class="composer__block margin2">
                                 <div ref="block3" class="composer__cover hidden">white</div>
-                                <a href="#/john-williams">
+                                <a href="#/daniel-pemberton">
                                     <div class="composer__image image2"></div>
                                 </a>
                                 <div ref="block4" class="composer__cover composer__cover--active">
-                                    <div class="composer__name">Daniel Pemberton <span>- The virtuose of </span></div>
+                                    <div class="composer__name">Daniel Pemberton <span>- British</span></div>
                                 </div>
                             </div>
                             <div class="composer__block margin3">
@@ -481,16 +545,34 @@ onMounted(() => {
                                     <div class="composer__image image3"></div>
                                 </a>
                                 <div ref="block6" class="composer__cover composer__cover--active">
-                                    <div class="composer__name">Michael Giacchino <span>- The virtuose of </span></div>
+                                    <div class="composer__name">Michael Giacchino <span>- American</span></div>
                                 </div>
                             </div>
                             <div class="composer__block margin4">
                                 <div ref="block7" class="composer__cover hidden">white</div>
-                                <a href="#/">
-                                    <div class="composer__image image4 hover-gray"></div>
+                                <a href="#/john-williams">
+                                    <div class="composer__image image4"></div>
                                 </a>
                                 <div ref="block8" class="composer__cover composer__cover--active">
-                                    <div class="composer__name">John Williams <span>- Coming Soon</span></div>
+                                    <div class="composer__name">John Williams <span>- American</span></div>
+                                </div>
+                            </div>
+                            <div class="composer__block margin5">
+                                <div ref="block9" class="composer__cover hidden">white</div>
+                                <a href="#/alexandre-desplat">
+                                    <div class="composer__image image5"></div>
+                                </a>
+                                <div ref="block10" class="composer__cover composer__cover--active">
+                                    <div class="composer__name">Alexandre Desplat <span>- French</span></div>
+                                </div>
+                            </div>
+                            <div class="composer__block margin6">
+                                <div ref="block11" class="composer__cover hidden">white</div>
+                                <a href="#/">
+                                    <div class="composer__image image6 hover-gray"></div>
+                                </a>
+                                <div ref="block12" class="composer__cover composer__cover--active">
+                                    <div class="composer__name">Ennio Morricone <span>- Coming Soon</span></div>
                                 </div>
                             </div>
                         </div>
@@ -592,8 +674,8 @@ onMounted(() => {
 
         p {
             text-transform: uppercase;
-            font-size: clamp(2rem, 3vw, 3rem);
-            line-height: clamp(35px, 3vw, 50px);
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            line-height: clamp(25px, 3vw, 50px);
         }
     }
 }
@@ -638,7 +720,7 @@ onMounted(() => {
             .catchphrase__text {
                 font-weight: 700;
                 font-size: clamp(1rem, 1vw, 2rem);
-                line-height: clamp(10px, 2vw, 30px);
+                line-height: clamp(20px, 1.5vw, 30px);
                 width: 50%;
             }
         }
@@ -684,22 +766,34 @@ onMounted(() => {
 
             .margin1 {
                 position: relative;
-                z-index: 4;
+                z-index: 6;
             }
 
             .margin2 {
                 position: relative;
                 margin-top: 25vh;
-                z-index: 3;
+                z-index: 5;
             }
 
             .margin3 {
                 position: relative;
                 margin-top: -50vh;
-                z-index: 2;
+                z-index: 4;
             }
 
             .margin4 {
+                position: relative;
+                margin-top: -25vh;
+                z-index: 4;
+            }
+
+            .margin5 {
+                position: relative;
+                margin-top: -60vh;
+                z-index: 2;
+            }
+
+            .margin6 {
                 position: relative;
                 margin-top: -25vh;
                 z-index: 1;
@@ -707,7 +801,6 @@ onMounted(() => {
 
             .composer__block {
                 width: 40vw;
-                height: 120vh;
                 display: flex;
                 flex-direction: column;
                 overflow: hidden;
@@ -726,7 +819,7 @@ onMounted(() => {
                     }
 
                     .composer__name {
-                        margin-top: 10vh;
+                        margin-top: 6vh;
                         font-size: clamp(1rem, 1.5vw, 3rem);
                         font-weight: 600;
 
@@ -759,7 +852,7 @@ onMounted(() => {
                 }
 
                 .image2 {
-                    background-image: url('/images/john-williams.jpg');
+                    background-image: url('/images/daniel-pemberton.jpg');
                 }
 
                 .image3 {
@@ -768,6 +861,15 @@ onMounted(() => {
 
                 .image4 {
                     background-image: url('/images/john-williams.jpg');
+                }
+
+                .image5 {
+                    background-image: url('/images/alexandre-desplat.jpg');
+                    background-position: 100%;
+                }
+
+                .image6 {
+                    background-image: url('/images/ennio-morricone.jpg');
                 }
 
                 .hover-gray:hover {
@@ -779,10 +881,95 @@ onMounted(() => {
     }
 }
 
+@media screen and (max-width: 1400px) {
+
+    .composer {
+
+        .composer__box {
+
+            .composer__block {
+
+                .composer__image {
+                    height: 60vh !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .composer {
+
+        .composer__box {
+
+            .composer__block {
+
+                .composer__image {
+                    height: 70vh !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .composer {
+
+        .composer__box {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: -200px !important;
+
+            .margin1 {
+                margin-top: 0 !important;
+            }
+
+            .margin2 {
+                margin-top: 0 !important;
+            }
+
+            .margin3 {
+                margin-top: 0 !important;
+            }
+
+            .margin4 {
+                margin-top: 0 !important;
+            }
+
+            .margin5 {
+                margin-top: 0 !important;
+            }
+
+            .margin6 {
+                margin-top: 0 !important;
+            }
+
+            .composer__block {
+                height: 100vh !important;
+
+                .composer__image {
+                    height: 70vh !important;
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 1000px) {
 
     .intro:deep(.intro__text) {
         margin-left: 26vw;
+    }
+
+    .composer {
+
+        .composer__box {
+            padding: 0 !important;
+        }
     }
 }
 
@@ -803,5 +990,43 @@ onMounted(() => {
     .intro:deep(.intro__text) {
         margin-left: 4vw;
     }
+
+    .catchphrase {
+        flex-direction: column;
+
+        .catchphrase__title {
+            width: 100%;
+        }
+
+        .catchphrase__box {
+            width: 100%;
+        }
+    }
 }
-</style>
+
+@media screen and (max-width: 600px) {
+
+    .catchphrase {
+        padding: 20px;
+
+        .catchphrase__block {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .catchphrase__chapter {
+            margin-bottom: 20px;
+        }
+
+        .catchphrase__text {
+            width: 90% !important;
+        }
+    }
+
+    .composer {
+
+        .composer__intro {
+            width: 100% !important;
+        }
+    }
+}</style>
