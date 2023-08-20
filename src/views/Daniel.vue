@@ -1,93 +1,29 @@
 <script setup>
-import Header from '../components/Header.vue';
-import { onMounted, ref, watch, nextTick } from 'vue';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
 import AudioPlayer from 'vue3-audio-player'
 import 'vue3-audio-player/dist/style.css'
+import { ref, onMounted } from 'vue';
 
-//REF
+//REFF
 
-const title = ref(null);
-const titleblock = ref(null);
-const movie1 = ref(null);
-const movie2 = ref(null);
-const movie3 = ref(null);
-const movie4 = ref(null);
-const movie5 = ref(null);
-const movie6 = ref(null);
-const movie1copy = ref(null);
-const movie2copy = ref(null);
-const movie3copy = ref(null);
-const movie4copy = ref(null);
-const movie5copy = ref(null);
-const movie6copy = ref(null);
-const music1 = ref(null);
+const all = ref(null);
+const block1 = ref(null);
+const block2 = ref(null);
+const img1 = ref(null);
+const img2 = ref(null);
+const img3 = ref(null);
+const box1 = ref(null);
+const box2 = ref(null);
+const box3 = ref(null);
 const music2 = ref(null);
 const music3 = ref(null);
-const music4 = ref(null);
-const music5 = ref(null);
-const music6 = ref(null);
-const title1 = ref(null);
-const title2 = ref(null);
-const title3 = ref(null);
-const title4 = ref(null);
-const title5 = ref(null);
-const title6 = ref(null);
-const back1 = ref(null);
-const back2 = ref(null);
-const back3 = ref(null);
-const back4 = ref(null);
-const back5 = ref(null);
-const back6 = ref(null);
-const audioElementRef1 = ref(null);
 const audioElementRef2 = ref(null);
 const audioElementRef3 = ref(null);
-const audioElementRef4 = ref(null);
-const audioElementRef5 = ref(null);
-const audioElementRef6 = ref(null);
-const minWidth = 100;
-const isWide = ref(false);
-
-//IS WIDE
-
-onMounted(() => {
-    watch(
-        () => movie1.value.offsetWidth,
-        (newWidth) => {
-            nextTick(() => {
-                isWide.value = newWidth >= minWidth;
-            });
-        }
-    );
-});
-
-console.log(isWide.value);
 
 //CUT MUSIC
-
-const handleIntersection1 = (entries) => {
-    entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-            const audioElement = audioElementRef1.value;
-            if (audioElement) {
-                audioElement.pause();
-            }
-        }
-    });
-};
-
-onMounted(() => {
-    audioElementRef1.value = music1.value.querySelector('audio');
-
-    const options = {
-        rootMargin: '0px',
-        threshold: 0.5,
-    };
-
-    const observer = new IntersectionObserver(handleIntersection1, options);
-    observer.observe(music1.value);
-});
 
 const handleIntersection2 = (entries) => {
     entries.forEach((entry) => {
@@ -135,838 +71,409 @@ onMounted(() => {
     observer.observe(music3.value);
 });
 
-const handleIntersection4 = (entries) => {
-    entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-            const audioElement = audioElementRef4.value;
-            if (audioElement) {
-                audioElement.pause();
-            }
-        }
-    });
-};
-
-onMounted(() => {
-    audioElementRef4.value = music4.value.querySelector('audio');
-
-    const options = {
-        rootMargin: '0px',
-        threshold: 0.5,
-    };
-
-    const observer = new IntersectionObserver(handleIntersection4, options);
-    observer.observe(music4.value);
-});
-
-const handleIntersection5 = (entries) => {
-    entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-            const audioElement = audioElementRef5.value;
-            if (audioElement) {
-                audioElement.pause();
-            }
-        }
-    });
-};
-
-onMounted(() => {
-    audioElementRef5.value = music5.value.querySelector('audio');
-
-    const options = {
-        rootMargin: '0px',
-        threshold: 0.5,
-    };
-
-    const observer = new IntersectionObserver(handleIntersection5, options);
-    observer.observe(music5.value);
-});
-
-const handleIntersection6 = (entries) => {
-    entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-            const audioElement = audioElementRef6.value;
-            if (audioElement) {
-                audioElement.pause();
-            }
-        }
-    });
-};
-
-onMounted(() => {
-    audioElementRef6.value = music6.value.querySelector('audio');
-
-    const options = {
-        rootMargin: '0px',
-        threshold: 0.5,
-    };
-
-    const observer = new IntersectionObserver(handleIntersection6, options);
-    observer.observe(music6.value);
-});
-
 //GSAP ANIMATION
 
 gsap.registerPlugin(ScrollTrigger)
 
 onMounted(() => {
-    gsap.to(titleblock.value, {
+    gsap.from(block1.value, {
         scrollTrigger: {
-            trigger: title.value,
+            trigger: block1.value,
+            start: "top 100%",
+            end: "bottom 0%",
             scrub: true,
-            start: "center center",
-            end: "bottom top",
             invalidateOnResize: true,
         },
-        opacity: 0,
-        duration: 3,
+        translateY: 100,
+        duration: 1,
     });
 }
 );
 
-const startAnimation1 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
-        opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie1copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie1copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '10vh',
-            width: '96vw',
-            height: '90vh',
-        })
-        .to(title1.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music1.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    back1.value.addEventListener('click', () => {
-        tl.reverse();
+onMounted(() => {
+    gsap.to(block2.value, {
+        scrollTrigger: {
+            trigger: block2.value,
+            start: "top 100%",
+            end: "bottom 0%",
+            scrub: true,
+            invalidateOnResize: true,
+        },
+        translateY: -100,
+        duration: 1,
     });
-};
+}
+);
 
-const startAnimation2 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
-        opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie2copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie2copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '10vh',
-            width: '96vw',
-            height: '90vh',
-        })
-        .to(title2.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music2.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    back2.value.addEventListener('click', () => {
-        tl.reverse();
+onMounted(() => {
+    gsap.from(img1.value, {
+        width: "20%",
+        duration: 0.75,
+        scrollTrigger: {
+            trigger: img1.value,
+            start: "top 80%",
+            end: "top 40%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+        },
     });
-};
+});
 
-const startAnimation3 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
+onMounted(() => {
+    gsap.to(box1.value, {
         opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie3copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '10vh',
-            width: '96vw',
-            height: '90vh',
-        })
-        .to(title3.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music3.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    back3.value.addEventListener('click', () => {
-        tl.reverse();
+        scrollTrigger: {
+            trigger: box1.value,
+            start: "bottom 40%",
+            end: "bottom 10%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+        },
     });
-};
+});
 
-const startAnimation4 = () => {
-    const tl = gsap.timeline();
+onMounted(() => {
+    gsap.from(img2.value, {
+        width: "20%",
+        duration: 0.75,
+        scrollTrigger: {
+            trigger: img2.value,
+            start: "top 80%",
+            end: "top 40%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+        },
+    });
+});
 
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
+onMounted(() => {
+    gsap.from(music2.value, {
         opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie4copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '10vh',
-            width: '96vw',
-            height: '90vh',
-        })
-        .to(title4.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music4.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    back4.value.addEventListener('click', () => {
-        tl.reverse();
+        scrollTrigger: {
+            trigger: music2.value,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+        },
     });
-};
+});
 
-const startAnimation5 = () => {
-    const tl = gsap.timeline();
-
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
+onMounted(() => {
+    gsap.to(box2.value, {
         opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie5copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '10vh',
-            width: '96vw',
-            height: '90vh',
-        })
-        .to(title5.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music5.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    back5.value.addEventListener('click', () => {
-        tl.reverse();
+        scrollTrigger: {
+            trigger: box2.value,
+            start: "bottom 40%",
+            end: "bottom 10%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+        },
     });
-};
+});
 
-const startAnimation6 = () => {
-    const tl = gsap.timeline();
+onMounted(() => {
+    gsap.from(img3.value, {
+        width: "20%",
+        duration: 0.75,
+        scrollTrigger: {
+            trigger: img3.value,
+            start: "top 80%",
+            end: "top 40%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+        },
+    });
+});
 
-    tl.to(movie1.value, {
-        duration: 0.2,
-        width: '10vw',
+onMounted(() => {
+    gsap.from(music3.value, {
         opacity: 0,
-    })
-        .to(movie2.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie3.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie4.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie5.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6.value, {
-            duration: 0.2,
-            opacity: 0,
-        })
-        .to(movie6copy.value, {
-            duration: 0.01,
-            display: 'flex',
-        })
-        .to(movie6copy.value, {
-            duration: 2,
-            opacity: 1,
-            marginTop: '10vh',
-            width: '96vw',
-            height: '90vh',
-        })
-        .to(title6.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-        .to(music6.value, {
-            duration: 0.5,
-            opacity: 1,
-        })
-
-    back6.value.addEventListener('click', () => {
-        tl.reverse();
+        scrollTrigger: {
+            trigger: music3.value,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+        },
     });
-};
-</script>   
+});
+
+onMounted(() => {
+    gsap.to(box3.value, {
+        opacity: 0,
+        scrollTrigger: {
+            trigger: box3.value,
+            start: "bottom 40%",
+            end: "bottom 10%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+        },
+    });
+});
+
+//GSAP RELOAD OPACITY ANIMATION
+
+onMounted(() => {
+    gsap.from(all.value, {
+        delay: 0.25,
+        duration: 0.75,
+        opacity: 0,
+        autoAlpha: 0,
+        ease: 'black.out(1.7)',
+    })
+})
+</script>
 
 <template>
-    <div class="container">
+    <div class="hans-container">
         <Header />
+        <main ref="all">
+            <section class="intro-container">
+                <div class="intro">
+                    <div ref="text" class="intro__text">
+                        <p>A composer known for his versatility and innovation, Daniel Pemberton has carved a unique niche
+                            in the realm of film scoring. From blending
+                            contemporary and vintage sounds to experimenting with genre-defying arrangements, Pemberton's
+                            music is a testament to his creativity. Pemberton's ability to breathe life into narratives
+                            through his inventive scores
+                            cements his place as a modern maestro of cinematic music.</p>
+                    </div>
+                    <div class="intro__block">
+                        <div ref="block1" class="intro__cover hidden">white</div>
+                        <div class="intro__image"></div>
+                        <div ref="block2" class="intro__cover hidden">white</div>
+                    </div>
+                </div>
+            </section>
+            <div class="splitter hidden">line</div>
+            <section class="disco-container">
+                <div class="disco">
+                    <div class="disco__block">
+                        <div ref="box1" class="disco__box disco__box--image">
+                            <img ref="img1" class="disco__image" src="/images/steve-jobs.jpg" alt="Steve Jobs image">
+                        </div>
+                        <div class="disco__box disco__box--text">
+                            <h3 class="disco__date">2015</h3>
+                            <p class="disco__text">Daniel Pemberton's score for "Steve Jobs" featured a unique blend of
+                                electronic and orchestral elements, mirroring the technological innovation and personal
+                                complexities of the film's titular character. Discover the complete score <a target="_blank"
+                                    href="https://www.youtube.com/playlist?list=PLfJrhODF82Z990odM5s-84YR7Vkw_VeIH">here</a>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="disco__block">
+                        <div ref="box2" class="disco__box disco__box--image">
+                            <img ref="img2" class="disco__image" src="/images/spiderman.jpg" alt="Spider-man image">
+                            <div class="player" ref="music2">
+                                <AudioPlayer ref="audioElementRef2" :option="{
+                                    src: '/audio/spiderman.mp3',
+                                    title: 'What\'s Up Danger -  Spider-Man: Into The Spider-verse (2018)',
+                                    coverImage: '',
+                                    progressBarColor: '#111111',
+                                    indicatorColor: '#111111',
+                                }" />
+                            </div>
+                        </div>
+                        <div class="disco__box disco__box--text">
+                            <h3 class="disco__date">2018</h3>
+                            <p class="disco__text">Pemberton's work on "Spider-Man: Into the Spider-Verse" embraced the
+                                film's innovative animation style and diverse characters. He crafted a dynamic and
+                                genre-blending score that perfectly complemented the film's unique storytelling approach.
+                                Discover the full score <a target="_blank"
+                                    href="https://www.youtube.com/playlist?list=OLAK5uy_n44Lz6fkAcYPNkmY1ycAArPkZR6xWI_Yg">here</a>.
 
-        <section class="mobile">
-            <p>To live the Soundtracks experience to its fullest, please use the desktop version.</p>
-        </section>
-
-        <section>
-            <div class="parallax-container hidden" title="Hans Zimmer photo">
-                michael giacchino
-            </div>
-        </section>
-
-        <section>
-            <div ref="titleblock" class="title-container">
-                <h3 ref="title">composo<span class="no-spacing">r</span></h3>
-                <h1 class="title">michael giacchin<span class="no-spacing">o</span></h1>
-            </div>
-        </section>
-
-        <section>
-            <div class="nav-container">
-                <div class="movie" ref="movie1" @click="startAnimation1" :class="{ 'wide': isWide }">
-                    <img class="movie__images" src="/images/the-incredibles.jpg" alt="Incredibles image">
-                    <h5 class="movie__title">Incredibles</h5>
-                </div>
-                <div class="copy" ref="movie1copy">
-                    <div class="copy__container">
-                        <h4 ref="title1">Incredit<span class="no-spacing">s</span></h4>
-                        <img class="copy__images" src="/images/the-incredibles.jpg" alt="Incredibles image">
+                            </p>
+                        </div>
                     </div>
-                    <div class="player" ref="music1">
-                        <button class="back" ref="back1"><span>Back</span></button>
-                        <AudioPlayer ref="audioElementRef1" :option="{
-                            src: '/audio/the-incredibles.mp3',
-                            title: 'The Incredibles (2004)',
-                            coverImage: '',
-                            progressBarColor: '#111111',
-                            indicatorColor: '#111111',
-                        }" />
-                        <p>The Incredibles (2004)</p>
+                    <div class="disco__block">
+                        <div ref="box3" class="disco__box disco__box--image">
+                            <img ref="img3" class="disco__image" src="/images/spiderman-dos.jpeg" alt="Spider-man image">
+                            <div class="player" ref="music3">
+                                <AudioPlayer ref="audioElementRef3" :option="{
+                                    src: '/audio/spiderman-dos.mp3',
+                                    title: 'Am I Dreaming - Spider-Man: Across the Spider-Verse (2023)',
+                                    coverImage: '',
+                                    progressBarColor: '#111111',
+                                    indicatorColor: '#111111',
+                                }" />
+                            </div>
+                        </div>
+                        <div class="disco__box disco__box--text">
+                            <h3 class="disco__date">2023</h3>
+                            <p class="disco__text">5 years after the release of "Spider-Man: Into the Spider-Verse",
+                                Pemberton returned to the world of the web-slinger with his work on the sequel, "Spider-Man:
+                                Across the Spider-Verse".
+                                Living up to the expectations of the original film, Pemberton's created a score that
+                                captured the spirit of every character in the film and unintentionally starting a trend on
+                                social networks with the "Spider-Man 2099" music. Discover the full score <a target="_blank"
+                                    href="https://www.youtube.com/playlist?list=OLAK5uy_nciDYVjuDwvq7nqDH5Rc8JLF58G81skwQ">here</a>.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="movie" ref="movie2" @click="startAnimation2">
-                    <img class="movie__images" src="/images/inside-out.jpg" alt="Inside Out image">
-                    <h5 class="movie__title">Inside Out</h5>
-                </div>
-                <div class="copy" ref="movie2copy">
-                    <div class="copy__container">
-                        <h4 ref="title2">Bundle of Jo<span class="no-spacing">y</span></h4>
-                        <img class="copy__images" src="/images/inside-out.jpg" alt="Inside Out image">
-                    </div>
-                    <div class="player" ref="music2">
-                        <button class="back" ref="back2"><span>Back</span></button>
-                        <AudioPlayer ref="audioElementRef2" :option="{
-                            src: '/audio/inside-out.mp3',
-                            title: 'Inside Out (2015)',
-                            coverImage: '',
-                            progressBarColor: '#111111',
-                            indicatorColor: '#111111',
-                        }" />
-                        <p>Inside Out (2015)</p>
-                    </div>
-                </div>
-                <div class="movie" ref="movie3" @click="startAnimation3">
-                    <img class="movie__images" src="/images/rogue-one.jpg" alt="Rogue One image">
-                    <h5 class="movie__title">Rogue One</h5>
-                </div>
-                <div class="copy" ref="movie3copy">
-                    <div class="copy__container">
-                        <h4 ref="title3">Hop<span class="no-spacing">e</span></h4>
-                        <img class="copy__images" src="/images/rogue-one.jpg" alt="Rogue One image">
-                    </div>
-                    <div class="player" ref="music3">
-                        <button class="back" ref="back3"><span>Back</span></button>
-                        <AudioPlayer ref="audioElementRef3" :option="{
-                            src: '/audio/rogue-one.mp3',
-                            title: 'Rogue One: A Star Wars Story (2016)',
-                            coverImage: '',
-                            progressBarColor: '#111111',
-                            indicatorColor: '#111111',
-                        }" />
-                        <p>Rogue One: A Star Wars Story (2016)</p>
-                    </div>
-                </div>
-                <div class="movie" ref="movie4" @click="startAnimation4">
-                    <img class="movie__images" src="/images/dr-strange.jpg" alt="Doctor Strange image">
-                    <h5 class="movie__title">Doctor Strange</h5>
-                </div>
-                <div class="copy" ref="movie4copy">
-                    <div class="copy__container">
-                        <h4 ref="title4">Inside the Mirro<span class="no-spacing">r</span></h4>
-                        <img class="copy__images" src="/images/dr-strange.jpg" alt="Doctor Strange image">
-                    </div>
-                    <div class="player" ref="music4">
-                        <button class="back" ref="back4"><span>Back</span></button>
-                        <AudioPlayer ref="audioElementRef4" :option="{
-                            src: '/audio/dr-strange.mp3',
-                            title: 'Doctor Strange (2016)',
-                            coverImage: '',
-                            progressBarColor: '#111111',
-                            indicatorColor: '#111111',
-                        }" />
-                        <p>Doctor Strange (2016)</p>
-                    </div>
-                </div>
-                <div class="movie" ref="movie5" @click="startAnimation5">
-                    <img class="movie__images" src="/images/coco.jpg" alt="Coco List image">
-                    <h5 class="movie__title">Coco</h5>
-                </div>
-                <div class="copy" ref="movie5copy">
-                    <div class="copy__container">
-                        <h4 ref="title5">Día de los Muerto<span class="no-spacing">s</span></h4>
-                        <img class="copy__images" src="/images/coco.jpg" alt="Coco image">
-                    </div>
-                    <div class="player" ref="music5">
-                        <button class="back" ref="back5"><span>Back</span></button>
-                        <AudioPlayer ref="audioElementRef5" :option="{
-                            src: '/audio/coco.mp3',
-                            title: 'Coco (2017)',
-                            coverImage: '',
-                            progressBarColor: '#111111',
-                            indicatorColor: '#111111',
-                        }" />
-                        <p>Coco (2017)</p>
-                    </div>
-                </div>
-                <div class="movie" ref="movie6" @click="startAnimation6">
-                    <img class="movie__images" src="/images/the-batman.jpg" alt="The Batman image">
-                    <h5 class="movie__title">The Batman</h5>
-                </div>
-                <div class="copy" ref="movie6copy">
-                    <div class="copy__container">
-                        <h4 ref="title6">The Batma<span class="no-spacing">n</span></h4>
-                        <img class="copy__images" src="/images/the-batman.jpg" alt="The Batman image">
-                    </div>
-                    <div class="player" ref="music6">
-                        <button class="back" ref="back6"><span>Back</span></button>
-                        <AudioPlayer ref="audioElementRef6" :option="{
-                            src: '/audio/the-batman.mp3',
-                            title: 'The Batman (2022)',
-                            coverImage: '',
-                            progressBarColor: '#111111',
-                            indicatorColor: '#111111',
-                        }" />
-                        <p>The Batman (2022)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </main>
+        <Footer />
     </div>
 </template>
 
 <style scoped lang="scss">
-.container {
+.hans-container {
     width: 100%;
-    height: 100%;
-    background-color: #FAFAFA;
+    min-height: 100vh;
+}
 
-    .box {
-        width: 100px;
-        height: 100px;
-        background-color: red;
-    }
+.intro-container {
+    position: relative;
+    z-index: 5;
+}
 
-    .title-container {
-        background: #FAFAFA;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 30vh;
-        padding: 60px;
-        z-index: 10;
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
-        h1 {
-            font-size: clamp(20px, 4vw, 60px);
-            letter-spacing: 0.5em;
-        }
+    .intro__block {
+        width: 30%;
+        height: 80vh;
+        z-index: 5;
+        margin-bottom: 30vh;
 
-        h3 {
-            font-size: clamp(16px, 2vw, 20px);
-            margin-bottom: 1vh;
-            font-weight: 600;
-            color: rgb(155, 155, 155);
-
-            span {
-                color: rgb(155, 155, 155);
-            }
-        }
-    }
-
-    .parallax-container {
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-        height: 70vh;
-        background-attachment: fixed;
-        background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        background-repeat: no-repeat;
-        background-position: top center;
-        padding-top: 8vh;
-        background-image: url('/images/michael-giacchino.jpg');
-    }
-
-    .nav-container {
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-x: hidden;
-        background-color: #FAFAFA;
-
-        .copy {
-            z-index: 50;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            width: 10vw;
-            height: 60vh;
-            position: absolute;
-            opacity: 0;
-            background-color: #FAFAFA;
+        .intro__image {
+            background-image: url('/images/daniel-pemberton.jpg');
+            background-size: cover;
+            background-position: 50%;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            padding: 20px;
             overflow: hidden;
+        }
 
-            .copy__container {
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
+        .intro__cover {
+            position: relative;
+            width: 101%;
+            height: 20vh;
+            background-color: #FAFAFA;
+            z-index: 10;
+        }
+    }
 
-                .black-title {
-                    color: #111111;
+    .intro__text {
+        z-index: 10;
+        display: flex;
+        text-align: start;
+        width: 60%;
+        margin: 16vh 4vw;
+        margin-bottom: -10vh;
 
-                    span {
-                        color: #111111;
-                    }
-                }
+        p {
+            font-size: clamp(1.2rem, 2vw, 2.5rem);
+            line-height: clamp(25px, 2.5vw, 50px);
+        }
+    }
+}
 
-                .copy__images {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    animation: scale 40s linear infinite;
-                }
+.disco {
+    width: 100%;
+    padding: 20vh 0;
 
-                @keyframes scale {
-                    50% {
-                        -webkit-transform: scale(1.2);
-                        -moz-transform: scale(1.2);
-                        -ms-transform: scale(1.2);
-                        -o-transform: scale(1.2);
-                        transform: scale(1.2);
-                    }
-                }
-            }
+    .disco__block {
+        display: flex;
+        align-items: center;
+        height: 100vh;
 
-            h4 {
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 10;
-                opacity: 0;
-                height: 100%;
-                width: 100%;
-                text-align: center;
-                margin-top: -7vh;
-                font-size: clamp(60px, 8vw, 200px);
-                color: #FAFAFA;
-
-                span {
-                    color: #FAFAFA;
-                }
-            }
-
-            .long-title {
-                margin-top: -7vh;
-                font-size: clamp(60px, 5vw, 200px);
-            }
+        .disco__box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            width: 50%;
+            padding: 60px;
 
             .player {
-                z-index: 50;
+                position: relative;
                 width: 100%;
-                height: 15vh;
-                opacity: 0;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+                height: 100%;
+            }
 
-                .back {
-                    display: block;
-                    width: 160px;
-                    height: 40px;
-                    font-size: 18px;
-                    font-family: sans-serif;
-                    text-decoration: none;
-                    border: 2px solid #292b31;
-                    letter-spacing: 2px;
-                    text-align: center;
-                    position: relative;
-                    transition: all .35s;
+            .disco__date {
+                font-size: clamp(8rem, 4vw, 12rem);
+            }
+
+            .disco__text {
+                text-align: right;
+                width: 70%;
+                font-weight: 500;
+                font-size: clamp(1rem, 1.2vw, 2rem);
+                line-height: clamp(1rem, 1.4vw, 2rem);
+
+                a {
+                    text-decoration: underline;
+                    transition: all 0.25s ease-in-out;
                     cursor: pointer;
-
-                    span {
-                        position: relative;
-                        z-index: 2;
-                        transition: all .35s;
-                        color: #292b31;
-                        font-weight: 500;
-                    }
                 }
 
-                .back:after {
-                    position: absolute;
-                    content: "";
-                    top: 0;
-                    left: 0;
-                    width: 0;
-                    height: 100%;
-                    background: #292b31;
-                    transition: all .35s;
-                }
-
-                .back:hover span {
-                    color: #fff;
-                }
-
-                .back:hover:after {
-                    width: 100%;
-                }
-
-                p {
-                    width: 160px;
-                    color: #111111;
+                a:hover {
+                    color: #FAFAFA;
+                    background-color: #111111;
                 }
             }
         }
 
-        .movie {
-            z-index: 20;
-            width: 10vw;
-            height: 60vh;
-            margin: 0px 0.5vw;
-            transition-duration: 0.5s;
+        .disco__box--image {
+            padding: 0 0 0 60px;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
             align-items: center;
-            text-align: center;
-            cursor: pointer;
 
-            h5 {
-                font-size: clamp(16px, 1vw, 20px);
-                font-weight: 500;
-            }
-
-            .movie__title {
-                margin-top: 1rem;
-                opacity: 0;
-            }
-
-            .movie__images {
+            .disco__image {
+                height: 60vh;
                 width: 100%;
-                height: 100%;
                 object-fit: cover;
             }
         }
+    }
+}
 
-        .movie:hover .movie__title {
-            opacity: 1;
-            transition: all 0.5s ease-in-out;
+@media screen and (max-width: 600px) {
+
+    .disco__block {
+
+        .disco__box--image {
+            .disco__image {
+                width: 100% !important;
+            }
         }
 
-        .movie .movie__title {
-            transition: all 0.5s ease-in-out;
-        }
+        .disco__box--text {
 
-        .movie:hover {
-            scale: 1.1;
-        }
-
-        .wide {
-            pointer-events: none;
+            .disco__text {
+                width: 100% !important;
+            }
         }
     }
 }
 
-/* Media Queries */
+@media screen and (max-width: 800px) {
 
-@media screen and (max-width: 959px) and (min-width: 768px) {
-    .home-container .block {
-        padding: 40px;
-        width: 620px;
+    .intro__text {
+        width: 100% !important;
+        padding: 0px 60px;
     }
 }
 
-@media screen and (max-width: 767px) {
-    .home-container .block {
-        padding: 30px;
-    }
+@media screen and (max-width: 1000px) {
 
-    .home-container h2 {
-        font-size: 30px;
-    }
+    .disco__block {
+        flex-direction: column-reverse;
+        align-items: center;
+        height: auto !important;
 
-    .home-container .block {
-        padding: 30px;
-    }
+        .disco__box {
+            width: 100% !important;
+        }
 
-    .home-container .parallax-one,
-    .home-container .parallax-two,
-    .home-container .parallax-three {
-        padding-top: 100px;
-        padding-bottom: 100px;
-    }
-}
-
-@media screen and (max-width: 479px) {
-    .home-container .block {
-        padding: 30px 15px;
+        .disco__box--image {
+            padding: 60px !important;
+        }
     }
 }
 </style>

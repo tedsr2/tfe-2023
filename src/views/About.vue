@@ -28,12 +28,14 @@ onMounted(() => {
             <div class="about">Discover my work
                 <div class="about__box">
                     <div class="about__block">
+                        <div class="about__splitter hidden">line</div>
                         <div class="about__title">01.<span>About me.</span></div>
                         <p class="about__text">Hello, my name is Diego. You're now exploring the website I created
                             for my graduation in Web design and development. I'm proud to present you my
                             work and I hope you enjoy it as much as I enjoyed working on it.</p>
                     </div>
                     <div class="about__block">
+                        <div class="about__splitter hidden">line</div>
                         <div class="about__title">02.<span>The project.</span></div>
                         <p class="about__text">I decided to create a website about something that I love, movies
                             soundtracks. To do so, I used the Vue.JS framework to create an easily updatable portal to
@@ -41,9 +43,11 @@ onMounted(() => {
                             musical universe.</p>
                     </div>
                     <div class="about__block">
+                        <div class="about__splitter hidden">line</div>
                         <div class="about__title">03.<span>The content</span></div>
                         <p class="about__text">The content of the website was written by me. All audio files are the
-                            propriety of the musical company that owns them. More information about that <a href="#/credits">here</a>.</p>
+                            propriety of the musical company that owns them. More information about that <a
+                                href="#/credits">here</a>.</p>
                     </div>
                 </div>
             </div>
@@ -74,6 +78,13 @@ onMounted(() => {
             padding-right: 100px;
             width: clamp(24vw, 30vw, 34vw);
 
+            .about__splitter {
+                height: 2px;
+                background-color: #111111;
+                width: 100%;
+                margin-bottom: 2vh;
+            }
+
             .about__title {
                 display: flex;
                 flex-direction: column;
@@ -103,35 +114,35 @@ onMounted(() => {
 
 @media screen and (max-width: 1000px) {
 
-.about__box {
-    flex-direction: column;
+    .about__box {
+        flex-direction: column;
 
-    .about__block {
-        width: 50vw !important;
-        margin-bottom: 40px;
+        .about__block {
+            width: 50vw !important;
+            margin-bottom: 40px;
+        }
     }
-}
 }
 
 @media screen and (max-width: 800px) {
 
-.about__box {
+    .about__box {
 
-    .about__block {
-        width: 75vw !important;
+        .about__block {
+            width: 75vw !important;
+        }
     }
-}
 }
 
 @media screen and (max-width: 600px) {
 
-.about__box {
-    width: 100%;
+    .about__box {
+        width: 100%;
 
-    .about__block {
-        padding-right: 0px !important;
-        width: 100% !important;
+        .about__block {
+            padding-right: 0px !important;
+            width: 100% !important;
+        }
     }
-}
 }
 </style>

@@ -9,6 +9,7 @@ import { ref, onMounted } from 'vue';
 
 //REFF
 
+const all = ref(null);
 const block1 = ref(null);
 const block2 = ref(null);
 const img1 = ref(null);
@@ -554,12 +555,24 @@ onMounted(() => {
         },
     });
 });
+
+//GSAP RELOAD OPACITY ANIMATION
+
+onMounted(() => {
+    gsap.from(all.value, {
+        delay: 0.25,
+        duration: 0.75,
+        opacity: 0,
+        autoAlpha: 0,
+        ease: 'black.out(1.7)',
+    })
+})
 </script>
 
 <template>
     <div class="hans-container">
         <Header />
-        <main>
+        <main ref="all">
             <section class="intro-container">
                 <div class="intro">
                     <div ref="text" class="intro__text">

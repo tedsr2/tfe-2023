@@ -520,7 +520,7 @@ onMounted(() => {
                                 discover.
                             </div>
                         </div>
-                        <div class="composer__box">
+                        <div class="composer__box composer__box--first">
                             <div class="composer__block margin1">
                                 <div ref="block1" class="composer__cover hidden">white</div>
                                 <a href="#/hans-zimmer">
@@ -539,6 +539,8 @@ onMounted(() => {
                                     <div class="composer__name">Daniel Pemberton <span>- British</span></div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="composer__box composer__box--second">
                             <div class="composer__block margin3">
                                 <div ref="block5" class="composer__cover hidden">white</div>
                                 <a href="#/michael-giacchino">
@@ -557,6 +559,8 @@ onMounted(() => {
                                     <div class="composer__name">John Williams <span>- American</span></div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="composer__box composer__box--third">
                             <div class="composer__block margin5">
                                 <div ref="block9" class="composer__cover hidden">white</div>
                                 <a href="#/alexandre-desplat">
@@ -569,10 +573,12 @@ onMounted(() => {
                             <div class="composer__block margin6">
                                 <div ref="block11" class="composer__cover hidden">white</div>
                                 <a href="#/">
-                                    <div class="composer__image image6 hover-gray"></div>
+                                    <div class="composer__image image6 hover-gray">
+                                        <div>Coming Soon</div>
+                                    </div>
                                 </a>
                                 <div ref="block12" class="composer__cover composer__cover--active">
-                                    <div class="composer__name">Ennio Morricone <span>- Coming Soon</span></div>
+                                    <div class="composer__name">Ennio Morricone <span>- Italian</span></div>
                                 </div>
                             </div>
                         </div>
@@ -754,48 +760,60 @@ onMounted(() => {
             }
         }
 
+        .composer__box--first {
+            z-index: 3;
+            margin-top: -20vh;
+        }
+
+        .composer__box--second {
+            z-index: 2;
+            margin-top: -25vh;
+        }
+
+        .composer__box--third {
+            z-index: 1;
+            margin-top: -25vh;
+        }
+
         .composer__box {
+            min-height: 100vh;
             position: relative;
             display: grid;
             width: 100%;
             grid-template-columns: 1fr 1fr;
             column-gap: 50px;
             padding: 0 10vw;
-            margin-top: -100px;
-            z-index: 5;
 
             .margin1 {
                 position: relative;
-                z-index: 6;
+                z-index: 2;
             }
 
             .margin2 {
                 position: relative;
                 margin-top: 25vh;
-                z-index: 5;
+                z-index: 1;
             }
 
             .margin3 {
                 position: relative;
-                margin-top: -50vh;
-                z-index: 4;
+                z-index: 2;
             }
 
             .margin4 {
                 position: relative;
-                margin-top: -25vh;
-                z-index: 4;
+                margin-top: 25vh;
+                z-index: 1;
             }
 
             .margin5 {
                 position: relative;
-                margin-top: -60vh;
                 z-index: 2;
             }
 
             .margin6 {
                 position: relative;
-                margin-top: -25vh;
+                margin-top: 25vh;
                 z-index: 1;
             }
 
@@ -872,6 +890,13 @@ onMounted(() => {
                     background-image: url('/images/ennio-morricone.jpg');
                 }
 
+                .hover-gray {
+                    div {
+                        color: #FAFAFA;
+                        font-size: clamp(2rem, 4vw, 6rem);
+                    }
+                }
+
                 .hover-gray:hover {
                     filter: grayscale(100%);
                     transform: none;
@@ -925,34 +950,34 @@ onMounted(() => {
             margin-top: -200px !important;
 
             .margin1 {
-                margin-top: 0 !important;
+                margin-top: 10vh !important;
             }
 
             .margin2 {
-                margin-top: 0 !important;
+                margin-top: -10vh !important;
             }
 
             .margin3 {
-                margin-top: 0 !important;
+                margin-top: 15vh !important;
             }
 
             .margin4 {
-                margin-top: 0 !important;
+                margin-top: -10vh !important;
             }
 
             .margin5 {
-                margin-top: 0 !important;
+                margin-top: 15vh !important;
             }
 
             .margin6 {
-                margin-top: 0 !important;
+                margin-top: -10vh !important;
             }
 
             .composer__block {
-                height: 100vh !important;
+                height: 90vh !important;
 
                 .composer__image {
-                    height: 70vh !important;
+                    height: 60vh !important;
                 }
             }
         }
@@ -1029,4 +1054,5 @@ onMounted(() => {
             width: 100% !important;
         }
     }
-}</style>
+}
+</style>

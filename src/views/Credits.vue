@@ -28,6 +28,7 @@ onMounted(() => {
             <div class="credits">Credits
                 <div class="credits__box">
                     <div class="credits__block">
+                        <div class="credits__splitter hidden">line</div>
                         <div class="credits__title">01.<span>Copyright Notice.</span></div>
                         <p class="credits__text">
 
@@ -38,6 +39,7 @@ onMounted(() => {
                         </p>
                     </div>
                     <div class="credits__block">
+                        <div class="credits__splitter hidden">line</div>
                         <div class="credits__title">02.<span>You can help.</span></div>
                         <p class="credits__text">We are committed to respecting copyright and properly attributing sources.
                             If
@@ -76,6 +78,13 @@ onMounted(() => {
             padding-right: 100px;
             width: clamp(24vw, 36vw, 40vw);
 
+            .credits__splitter {
+                height: 2px;
+                background-color: #111111;
+                width: 100%;
+                margin-bottom: 2vh;
+            }
+
             .credits__title {
                 display: flex;
                 flex-direction: column;
@@ -105,34 +114,34 @@ onMounted(() => {
 
 @media screen and (max-width: 1000px) {
 
-.credits__box {
-    flex-direction: column;
+    .credits__box {
+        flex-direction: column;
 
-    .credits__block {
-        width: 50vw !important;
-        margin-bottom: 40px;
+        .credits__block {
+            width: 50vw !important;
+            margin-bottom: 40px;
+        }
     }
-}
 }
 
 @media screen and (max-width: 800px) {
 
-.credits__box {
+    .credits__box {
 
-    .credits__block {
-        width: 75vw !important;
+        .credits__block {
+            width: 75vw !important;
+        }
     }
-}
 }
 
 @media screen and (max-width: 600px) {
 
-.credits__box {
+    .credits__box {
 
-    .credits__block {
-        padding-right: 0px !important;
-        width: 100% !important;
+        .credits__block {
+            padding-right: 0px !important;
+            width: 100% !important;
+        }
     }
-}
 }
 </style>

@@ -65,11 +65,11 @@ const resetColors = () => {
                             we'd love to hear from you.</div>
                         <form class="contact__form" method="post" action="#">
                             <div class="form__el">
-                                <input required type="name" id="name" name="name">
+                                <input required autofocus type="name" id="name" name="name">
                                 <label for="name">Name</label>
                             </div>
                             <div class="form__el">
-                                <input required autofocus type="email" id="email" name="email">
+                                <input required type="email" id="email" name="email">
                                 <label for="email">Email address</label>
                             </div>
                             <div class="form__el">
